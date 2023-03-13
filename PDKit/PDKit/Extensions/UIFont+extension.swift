@@ -20,7 +20,7 @@ extension UIFont {
     
     private static var fontsRegistered: Bool = false
     
-    public static func loadRDCustomFonts() {
+    public static func loadPDCustomFonts() {
         guard !fontsRegistered else { return }
         for font in PDFonts.allCases {
             do {
