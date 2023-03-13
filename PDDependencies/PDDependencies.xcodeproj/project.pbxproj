@@ -11,6 +11,8 @@
 		4C6C777829BF9C5100CB207F /* PDDependencies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C6C776D29BF9C5100CB207F /* PDDependencies.framework */; };
 		4C6C777D29BF9C5100CB207F /* PDDependenciesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C777C29BF9C5100CB207F /* PDDependenciesTests.swift */; };
 		4C6C777E29BF9C5100CB207F /* PDDependencies.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C6C777029BF9C5100CB207F /* PDDependencies.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4C6C778929BF9CCD00CB207F /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 4C6C778829BF9CCD00CB207F /* SDWebImage */; };
+		4C6C778C29BF9CE800CB207F /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 4C6C778B29BF9CE800CB207F /* SkeletonView */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C6C778C29BF9CE800CB207F /* SkeletonView in Frameworks */,
+				4C6C778929BF9CCD00CB207F /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +117,10 @@
 			dependencies = (
 			);
 			name = PDDependencies;
+			packageProductDependencies = (
+				4C6C778829BF9CCD00CB207F /* SDWebImage */,
+				4C6C778B29BF9CE800CB207F /* SkeletonView */,
+			);
 			productName = PDDependencies;
 			productReference = 4C6C776D29BF9C5100CB207F /* PDDependencies.framework */;
 			productType = "com.apple.product-type.framework";
@@ -162,6 +170,10 @@
 				Base,
 			);
 			mainGroup = 4C6C776329BF9C5100CB207F;
+			packageReferences = (
+				4C6C778729BF9CCD00CB207F /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				4C6C778A29BF9CE800CB207F /* XCRemoteSwiftPackageReference "SkeletonView" */,
+			);
 			productRefGroup = 4C6C776E29BF9C5100CB207F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -456,6 +468,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4C6C778729BF9CCD00CB207F /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = exactVersion;
+				version = 5.12.3;
+			};
+		};
+		4C6C778A29BF9CE800CB207F /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView";
+			requirement = {
+				kind = exactVersion;
+				version = 1.29.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4C6C778829BF9CCD00CB207F /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4C6C778729BF9CCD00CB207F /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		4C6C778B29BF9CE800CB207F /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4C6C778A29BF9CE800CB207F /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4C6C776429BF9C5100CB207F /* Project object */;
 }
