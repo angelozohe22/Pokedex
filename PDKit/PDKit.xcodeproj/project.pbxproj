@@ -11,6 +11,13 @@
 		4C2C1C1B29BEEA36009F1F54 /* PDKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C2C1C1029BEEA36009F1F54 /* PDKit.framework */; };
 		4C2C1C2029BEEA36009F1F54 /* PDKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2C1C1F29BEEA36009F1F54 /* PDKitTests.swift */; };
 		4C2C1C2129BEEA36009F1F54 /* PDKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C2C1C1329BEEA36009F1F54 /* PDKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4C2C1C3529BEEB33009F1F54 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C2C1C3429BEEB33009F1F54 /* Images.xcassets */; };
+		4C2C1C3729BEEB3C009F1F54 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C2C1C3629BEEB3C009F1F54 /* Icons.xcassets */; };
+		4C2C1C3929BEEB4C009F1F54 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C2C1C3829BEEB4C009F1F54 /* Colors.xcassets */; };
+		4C2C1C3F29BEEC47009F1F54 /* ProductSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C2C1C3B29BEEC47009F1F54 /* ProductSans-BoldItalic.ttf */; };
+		4C2C1C4029BEEC47009F1F54 /* ProductSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C2C1C3C29BEEC47009F1F54 /* ProductSans-Italic.ttf */; };
+		4C2C1C4129BEEC47009F1F54 /* ProductSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C2C1C3D29BEEC47009F1F54 /* ProductSans-Regular.ttf */; };
+		4C2C1C4229BEEC47009F1F54 /* ProductSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C2C1C3E29BEEC47009F1F54 /* ProductSans-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +36,13 @@
 		4C2C1C1429BEEA36009F1F54 /* PDKit.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = PDKit.docc; sourceTree = "<group>"; };
 		4C2C1C1A29BEEA36009F1F54 /* PDKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PDKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C2C1C1F29BEEA36009F1F54 /* PDKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDKitTests.swift; sourceTree = "<group>"; };
+		4C2C1C3429BEEB33009F1F54 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		4C2C1C3629BEEB3C009F1F54 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
+		4C2C1C3829BEEB4C009F1F54 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		4C2C1C3B29BEEC47009F1F54 /* ProductSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProductSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		4C2C1C3C29BEEC47009F1F54 /* ProductSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProductSans-Italic.ttf"; sourceTree = "<group>"; };
+		4C2C1C3D29BEEC47009F1F54 /* ProductSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProductSans-Regular.ttf"; sourceTree = "<group>"; };
+		4C2C1C3E29BEEC47009F1F54 /* ProductSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProductSans-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +85,7 @@
 		4C2C1C1229BEEA36009F1F54 /* PDKit */ = {
 			isa = PBXGroup;
 			children = (
+				4C2C1C3329BEEB13009F1F54 /* Resources */,
 				4C2C1C1329BEEA36009F1F54 /* PDKit.h */,
 				4C2C1C1429BEEA36009F1F54 /* PDKit.docc */,
 			);
@@ -83,6 +98,28 @@
 				4C2C1C1F29BEEA36009F1F54 /* PDKitTests.swift */,
 			);
 			path = PDKitTests;
+			sourceTree = "<group>";
+		};
+		4C2C1C3329BEEB13009F1F54 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4C2C1C3A29BEEB56009F1F54 /* Fonts */,
+				4C2C1C3429BEEB33009F1F54 /* Images.xcassets */,
+				4C2C1C3629BEEB3C009F1F54 /* Icons.xcassets */,
+				4C2C1C3829BEEB4C009F1F54 /* Colors.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		4C2C1C3A29BEEB56009F1F54 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				4C2C1C3E29BEEC47009F1F54 /* ProductSans-Bold.ttf */,
+				4C2C1C3B29BEEC47009F1F54 /* ProductSans-BoldItalic.ttf */,
+				4C2C1C3C29BEEC47009F1F54 /* ProductSans-Italic.ttf */,
+				4C2C1C3D29BEEC47009F1F54 /* ProductSans-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,6 +214,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C2C1C3F29BEEC47009F1F54 /* ProductSans-BoldItalic.ttf in Resources */,
+				4C2C1C3729BEEB3C009F1F54 /* Icons.xcassets in Resources */,
+				4C2C1C4129BEEC47009F1F54 /* ProductSans-Regular.ttf in Resources */,
+				4C2C1C3929BEEB4C009F1F54 /* Colors.xcassets in Resources */,
+				4C2C1C4029BEEC47009F1F54 /* ProductSans-Italic.ttf in Resources */,
+				4C2C1C4229BEEC47009F1F54 /* ProductSans-Bold.ttf in Resources */,
+				4C2C1C3529BEEB33009F1F54 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
