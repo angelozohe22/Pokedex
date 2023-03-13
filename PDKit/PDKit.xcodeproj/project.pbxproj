@@ -24,6 +24,8 @@
 		4C2C1C4C29BEF17C009F1F54 /* UIImage+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2C1C4B29BEF17C009F1F54 /* UIImage+extension.swift */; };
 		4C2C1C4E29BEF1AD009F1F54 /* PDImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2C1C4D29BEF1AD009F1F54 /* PDImage.swift */; };
 		4C2C1C5029BEF42C009F1F54 /* PDIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2C1C4F29BEF42C009F1F54 /* PDIcon.swift */; };
+		4C2C1C5229BF031E009F1F54 /* PDColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2C1C5129BF031E009F1F54 /* PDColors.swift */; };
+		4C2C1C5429BF05C4009F1F54 /* UIColor+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2C1C5329BF05C4009F1F54 /* UIColor+extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		4C2C1C4B29BEF17C009F1F54 /* UIImage+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+extension.swift"; sourceTree = "<group>"; };
 		4C2C1C4D29BEF1AD009F1F54 /* PDImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDImage.swift; sourceTree = "<group>"; };
 		4C2C1C4F29BEF42C009F1F54 /* PDIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDIcon.swift; sourceTree = "<group>"; };
+		4C2C1C5129BF031E009F1F54 /* PDColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDColors.swift; sourceTree = "<group>"; };
+		4C2C1C5329BF05C4009F1F54 /* UIColor+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +146,7 @@
 				4C2C1C4429BEECAF009F1F54 /* UIFont+extension.swift */,
 				4C2C1C4629BEECD1009F1F54 /* Bundle+extension.swift */,
 				4C2C1C4B29BEF17C009F1F54 /* UIImage+extension.swift */,
+				4C2C1C5329BF05C4009F1F54 /* UIColor+extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -152,6 +157,7 @@
 				4C2C1C4929BEED08009F1F54 /* PDFonts.swift */,
 				4C2C1C4D29BEF1AD009F1F54 /* PDImage.swift */,
 				4C2C1C4F29BEF42C009F1F54 /* PDIcon.swift */,
+				4C2C1C5129BF031E009F1F54 /* PDColors.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -275,10 +281,12 @@
 				4C2C1C4C29BEF17C009F1F54 /* UIImage+extension.swift in Sources */,
 				4C2C1C4529BEECAF009F1F54 /* UIFont+extension.swift in Sources */,
 				4C2C1C4729BEECD1009F1F54 /* Bundle+extension.swift in Sources */,
+				4C2C1C5429BF05C4009F1F54 /* UIColor+extension.swift in Sources */,
 				4C2C1C4E29BEF1AD009F1F54 /* PDImage.swift in Sources */,
 				4C2C1C5029BEF42C009F1F54 /* PDIcon.swift in Sources */,
 				4C2C1C4A29BEED08009F1F54 /* PDFonts.swift in Sources */,
 				4C2C1C1529BEEA36009F1F54 /* PDKit.docc in Sources */,
+				4C2C1C5229BF031E009F1F54 /* PDColors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
