@@ -7,7 +7,7 @@
 
 import UIKit
 
-/*
+/**
  * PDIcon
  
  These icons are those that are used throughout the pokedex api project.

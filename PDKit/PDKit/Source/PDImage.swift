@@ -7,7 +7,7 @@
 
 import UIKit
 
-/*
+/**
  * PDImage
  
  These images are those that are used throughout the pokedex api project.

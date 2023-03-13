@@ -7,7 +7,7 @@
 
 import UIKit
 
-/*
+/**
  * PDFonts
  
  These fonts are those that are used throughout the pokedex api project.
