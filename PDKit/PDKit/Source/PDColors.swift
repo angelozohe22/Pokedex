@@ -7,7 +7,7 @@
 
 import UIKit
 
-/*
+/**
  * PDColors
  
  These colors are those that are used throughout the pokedex api project.
@@ -37,6 +37,7 @@ public struct PDColors {
         static let cl_Black = "cl-black"
         static let cl_White = "cl-white"
         static let cl_LightGray = "cl-light-gray"
+        static let cl_Shadow = "cl-shadow"
         static let cl_AirBlue = "cl-air-blue"
         static let cl_AirBlueLight = "cl-air-blue-light"
         static let cl_Amethyst = "cl-amethyst"
@@ -86,6 +87,9 @@ public struct PDColors {
     
     /// This color is used to background or another case
     public static let cl_LightGray = UIColor.loadColor(named: Name.cl_LightGray)
+    
+    /// This color is used to shadow views or another case
+    public static let cl_Shadow = UIColor.loadColor(named: Name.cl_Shadow)
     
     /// This color is used to highlight the *steel* type pokemon.
     public static let cl_AirBlue = UIColor.loadColor(named: Name.cl_AirBlue)
