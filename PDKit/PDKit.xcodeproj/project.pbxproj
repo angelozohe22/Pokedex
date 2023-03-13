@@ -21,6 +21,8 @@
 		4C2C1C4529BEECAF009F1F54 /* UIFont+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2C1C4429BEECAF009F1F54 /* UIFont+extension.swift */; };
 		4C2C1C4729BEECD1009F1F54 /* Bundle+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2C1C4629BEECD1009F1F54 /* Bundle+extension.swift */; };
 		4C2C1C4A29BEED08009F1F54 /* PDFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2C1C4929BEED08009F1F54 /* PDFonts.swift */; };
+		4C2C1C4C29BEF17C009F1F54 /* UIImage+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2C1C4B29BEF17C009F1F54 /* UIImage+extension.swift */; };
+		4C2C1C4E29BEF1AD009F1F54 /* PDImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2C1C4D29BEF1AD009F1F54 /* PDImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		4C2C1C4429BEECAF009F1F54 /* UIFont+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+extension.swift"; sourceTree = "<group>"; };
 		4C2C1C4629BEECD1009F1F54 /* Bundle+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+extension.swift"; sourceTree = "<group>"; };
 		4C2C1C4929BEED08009F1F54 /* PDFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFonts.swift; sourceTree = "<group>"; };
+		4C2C1C4B29BEF17C009F1F54 /* UIImage+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+extension.swift"; sourceTree = "<group>"; };
+		4C2C1C4D29BEF1AD009F1F54 /* PDImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +139,7 @@
 			children = (
 				4C2C1C4429BEECAF009F1F54 /* UIFont+extension.swift */,
 				4C2C1C4629BEECD1009F1F54 /* Bundle+extension.swift */,
+				4C2C1C4B29BEF17C009F1F54 /* UIImage+extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -143,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				4C2C1C4929BEED08009F1F54 /* PDFonts.swift */,
+				4C2C1C4D29BEF1AD009F1F54 /* PDImage.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -263,8 +269,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C2C1C4C29BEF17C009F1F54 /* UIImage+extension.swift in Sources */,
 				4C2C1C4529BEECAF009F1F54 /* UIFont+extension.swift in Sources */,
 				4C2C1C4729BEECD1009F1F54 /* Bundle+extension.swift in Sources */,
+				4C2C1C4E29BEF1AD009F1F54 /* PDImage.swift in Sources */,
 				4C2C1C4A29BEED08009F1F54 /* PDFonts.swift in Sources */,
 				4C2C1C1529BEEA36009F1F54 /* PDKit.docc in Sources */,
 			);
