@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:PDDependencies/PDDependencies.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:PDNetworking/PDNetworking.xcodeproj">
    </FileRef>
    <FileRef
