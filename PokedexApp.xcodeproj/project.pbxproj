@@ -14,7 +14,29 @@
 		4C2C1BA029BEE4A1009F1F54 /* PokedexApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C2C1B9E29BEE4A1009F1F54 /* PokedexApp.xcdatamodeld */; };
 		4C2C1BA229BEE4A2009F1F54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C2C1BA129BEE4A2009F1F54 /* Assets.xcassets */; };
 		4C2C1BA529BEE4A2009F1F54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C2C1BA329BEE4A2009F1F54 /* LaunchScreen.storyboard */; };
+		4C6C778F29BF9E0E00CB207F /* PDDependencies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C6C778E29BF9E0E00CB207F /* PDDependencies.framework */; };
+		4C6C779029BF9E0E00CB207F /* PDDependencies.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4C6C778E29BF9E0E00CB207F /* PDDependencies.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4C6C779329BF9E1300CB207F /* PDKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C6C779229BF9E1300CB207F /* PDKit.framework */; };
+		4C6C779429BF9E1300CB207F /* PDKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4C6C779229BF9E1300CB207F /* PDKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4C6C779629BF9E1800CB207F /* PDNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C6C779529BF9E1800CB207F /* PDNetworking.framework */; };
+		4C6C779729BF9E1800CB207F /* PDNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4C6C779529BF9E1800CB207F /* PDNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4C6C779129BF9E0E00CB207F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4C6C779029BF9E0E00CB207F /* PDDependencies.framework in Embed Frameworks */,
+				4C6C779729BF9E1800CB207F /* PDNetworking.framework in Embed Frameworks */,
+				4C6C779429BF9E1300CB207F /* PDKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4C2C1B9229BEE4A1009F1F54 /* PokedexApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokedexApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -26,6 +48,9 @@
 		4C2C1BA129BEE4A2009F1F54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C2C1BA429BEE4A2009F1F54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C2C1BA629BEE4A2009F1F54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C6C778E29BF9E0E00CB207F /* PDDependencies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PDDependencies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C6C779229BF9E1300CB207F /* PDKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PDKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C6C779529BF9E1800CB207F /* PDNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PDNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +58,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C6C778F29BF9E0E00CB207F /* PDDependencies.framework in Frameworks */,
+				4C6C779629BF9E1800CB207F /* PDNetworking.framework in Frameworks */,
+				4C6C779329BF9E1300CB207F /* PDKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +72,7 @@
 			children = (
 				4C2C1B9429BEE4A1009F1F54 /* PokedexApp */,
 				4C2C1B9329BEE4A1009F1F54 /* Products */,
+				4C6C778D29BF9E0E00CB207F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +99,16 @@
 			path = PokedexApp;
 			sourceTree = "<group>";
 		};
+		4C6C778D29BF9E0E00CB207F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4C6C779529BF9E1800CB207F /* PDNetworking.framework */,
+				4C6C779229BF9E1300CB207F /* PDKit.framework */,
+				4C6C778E29BF9E0E00CB207F /* PDDependencies.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -80,6 +119,7 @@
 				4C2C1B8E29BEE4A1009F1F54 /* Sources */,
 				4C2C1B8F29BEE4A1009F1F54 /* Frameworks */,
 				4C2C1B9029BEE4A1009F1F54 /* Resources */,
+				4C6C779129BF9E0E00CB207F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
