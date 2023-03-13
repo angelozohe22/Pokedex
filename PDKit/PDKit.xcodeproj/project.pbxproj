@@ -18,6 +18,9 @@
 		4C2C1C4029BEEC47009F1F54 /* ProductSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C2C1C3C29BEEC47009F1F54 /* ProductSans-Italic.ttf */; };
 		4C2C1C4129BEEC47009F1F54 /* ProductSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C2C1C3D29BEEC47009F1F54 /* ProductSans-Regular.ttf */; };
 		4C2C1C4229BEEC47009F1F54 /* ProductSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C2C1C3E29BEEC47009F1F54 /* ProductSans-Bold.ttf */; };
+		4C2C1C4529BEECAF009F1F54 /* UIFont+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2C1C4429BEECAF009F1F54 /* UIFont+extension.swift */; };
+		4C2C1C4729BEECD1009F1F54 /* Bundle+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2C1C4629BEECD1009F1F54 /* Bundle+extension.swift */; };
+		4C2C1C4A29BEED08009F1F54 /* PDFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2C1C4929BEED08009F1F54 /* PDFonts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +46,9 @@
 		4C2C1C3C29BEEC47009F1F54 /* ProductSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProductSans-Italic.ttf"; sourceTree = "<group>"; };
 		4C2C1C3D29BEEC47009F1F54 /* ProductSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProductSans-Regular.ttf"; sourceTree = "<group>"; };
 		4C2C1C3E29BEEC47009F1F54 /* ProductSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProductSans-Bold.ttf"; sourceTree = "<group>"; };
+		4C2C1C4429BEECAF009F1F54 /* UIFont+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+extension.swift"; sourceTree = "<group>"; };
+		4C2C1C4629BEECD1009F1F54 /* Bundle+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+extension.swift"; sourceTree = "<group>"; };
+		4C2C1C4929BEED08009F1F54 /* PDFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFonts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +91,9 @@
 		4C2C1C1229BEEA36009F1F54 /* PDKit */ = {
 			isa = PBXGroup;
 			children = (
+				4C2C1C4329BEEC84009F1F54 /* Extensions */,
 				4C2C1C3329BEEB13009F1F54 /* Resources */,
+				4C2C1C4829BEECED009F1F54 /* Source */,
 				4C2C1C1329BEEA36009F1F54 /* PDKit.h */,
 				4C2C1C1429BEEA36009F1F54 /* PDKit.docc */,
 			);
@@ -120,6 +128,23 @@
 				4C2C1C3D29BEEC47009F1F54 /* ProductSans-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		4C2C1C4329BEEC84009F1F54 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4C2C1C4429BEECAF009F1F54 /* UIFont+extension.swift */,
+				4C2C1C4629BEECD1009F1F54 /* Bundle+extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4C2C1C4829BEECED009F1F54 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				4C2C1C4929BEED08009F1F54 /* PDFonts.swift */,
+			);
+			path = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,6 +263,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C2C1C4529BEECAF009F1F54 /* UIFont+extension.swift in Sources */,
+				4C2C1C4729BEECD1009F1F54 /* Bundle+extension.swift in Sources */,
+				4C2C1C4A29BEED08009F1F54 /* PDFonts.swift in Sources */,
 				4C2C1C1529BEEA36009F1F54 /* PDKit.docc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -440,6 +468,7 @@
 		4C2C1C2829BEEA36009F1F54 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A5APZBJCDC;
@@ -456,6 +485,7 @@
 		4C2C1C2929BEEA36009F1F54 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A5APZBJCDC;
