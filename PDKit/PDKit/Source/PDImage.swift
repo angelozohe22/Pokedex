@@ -7,6 +7,27 @@
 
 import UIKit
 
+/*
+ * PDImage
+ 
+ These images are those that are used throughout the pokedex api project.
+ 
+ 1) To use them we will have to import the PDKit framework.
+ 
+ - import PDKit
+ 
+ 2) Then we will have to make a call to the PDImage class and the name of the image to use.
+ 
+ - Example:
+    let imagePokeball: UIImage = PDImage.imgPokeballClear
+ 
+ 3) Finally we will have to set the value obtained in a UIImageView.
+ 
+ - Example:
+    self.pokeballImageView.image = imagePokeball
+ 
+ */
+
 public struct PDImage {
     
     // MARK: - Name
