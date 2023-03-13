@@ -28,6 +28,7 @@
 		4C2C1C5429BF05C4009F1F54 /* UIColor+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2C1C5329BF05C4009F1F54 /* UIColor+extension.swift */; };
 		4C2C1C5629BF0ED3009F1F54 /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2C1C5529BF0ED3009F1F54 /* UIView+extension.swift */; };
 		4C2C1C5829BF0FA4009F1F54 /* UIView+constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2C1C5729BF0FA4009F1F54 /* UIView+constraints.swift */; };
+		4C2C1C5B29BF10DC009F1F54 /* StoryboardInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2C1C5A29BF10DC009F1F54 /* StoryboardInstantiable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		4C2C1C5329BF05C4009F1F54 /* UIColor+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extension.swift"; sourceTree = "<group>"; };
 		4C2C1C5529BF0ED3009F1F54 /* UIView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
 		4C2C1C5729BF0FA4009F1F54 /* UIView+constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+constraints.swift"; sourceTree = "<group>"; };
+		4C2C1C5A29BF10DC009F1F54 /* StoryboardInstantiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardInstantiable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 		4C2C1C1229BEEA36009F1F54 /* PDKit */ = {
 			isa = PBXGroup;
 			children = (
+				4C2C1C5929BF10CD009F1F54 /* Helper */,
 				4C2C1C4329BEEC84009F1F54 /* Extensions */,
 				4C2C1C3329BEEB13009F1F54 /* Resources */,
 				4C2C1C4829BEECED009F1F54 /* Source */,
@@ -166,6 +169,14 @@
 				4C2C1C5129BF031E009F1F54 /* PDColors.swift */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		4C2C1C5929BF10CD009F1F54 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				4C2C1C5A29BF10DC009F1F54 /* StoryboardInstantiable.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,6 +305,7 @@
 				4C2C1C4A29BEED08009F1F54 /* PDFonts.swift in Sources */,
 				4C2C1C1529BEEA36009F1F54 /* PDKit.docc in Sources */,
 				4C2C1C5829BF0FA4009F1F54 /* UIView+constraints.swift in Sources */,
+				4C2C1C5B29BF10DC009F1F54 /* StoryboardInstantiable.swift in Sources */,
 				4C2C1C5229BF031E009F1F54 /* PDColors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
