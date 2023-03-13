@@ -56,6 +56,10 @@
 		4C2C1B9429BEE4A1009F1F54 /* PokedexApp */ = {
 			isa = PBXGroup;
 			children = (
+				4C6C779A29BFBB4200CB207F /* Helper */,
+				4C6C779929BFBB3900CB207F /* Repository */,
+				4C6C779829BFBB3200CB207F /* Model */,
+				4C6C779B29BFBB4E00CB207F /* Modules */,
 				4C2C1B9529BEE4A1009F1F54 /* AppDelegate.swift */,
 				4C2C1B9929BEE4A1009F1F54 /* ViewController.swift */,
 				4C2C1B9B29BEE4A1009F1F54 /* Main.storyboard */,
@@ -65,6 +69,50 @@
 				4C2C1B9E29BEE4A1009F1F54 /* PokedexApp.xcdatamodeld */,
 			);
 			path = PokedexApp;
+			sourceTree = "<group>";
+		};
+		4C6C779829BFBB3200CB207F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4C6C779929BFBB3900CB207F /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				4C6C779D29BFBB7F00CB207F /* Remote */,
+				4C6C779C29BFBB7A00CB207F /* Local */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		4C6C779A29BFBB4200CB207F /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		4C6C779B29BFBB4E00CB207F /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		4C6C779C29BFBB7A00CB207F /* Local */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		4C6C779D29BFBB7F00CB207F /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Remote;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
