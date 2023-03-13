@@ -17,7 +17,7 @@ public protocol BaseRequest {
     
     var baseURL: String { get }
     var service: String { get }
-    var path: String { get set }
+    var path: String { get }
     var method: HTTPMethod { get }
     var headers: [HeaderKey: String] { get }
     

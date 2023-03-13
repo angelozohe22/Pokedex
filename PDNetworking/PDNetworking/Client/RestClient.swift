@@ -17,9 +17,9 @@ public class RestClient: RestClientProtocol {
     
     // MARK: - Properties
     
-    static let shared = RestClient()
+    public static let shared = RestClient()
     
-    public let urlSession: URLSession
+    private let urlSession: URLSession
     
     private var searchTask: URLSessionDataTask?
     
@@ -70,12 +70,8 @@ public class RestClient: RestClientProtocol {
                     return completion(.failure(.invalidResponse))
                 }
                 
-                switch response.statusCode {
-                case 401:
+                if case 401 = response.statusCode {
                     completion(.failure(.unauthorized))
-                default:
-                    completion(.failure(.invalidResponse))
-                    break
                 }
 
                 guard let data = data else {
@@ -128,12 +124,8 @@ public class RestClient: RestClientProtocol {
                     return completion(.failure(.invalidResponse))
                 }
                 
-                switch response.statusCode {
-                case 401:
+                if case 401 = response.statusCode {
                     completion(.failure(.unauthorized))
-                default:
-                    completion(.failure(.invalidResponse))
-                    break
                 }
 
                 guard let data = data else {
