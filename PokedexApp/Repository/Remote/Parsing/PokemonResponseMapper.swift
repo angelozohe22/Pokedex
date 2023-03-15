@@ -65,4 +65,10 @@ class PokemonResponseMapper {
         return PokemonSpecie(name: response.name)
     }
     
+    class func mapDescriptionResponseToDescription(response: [PokemonDescriptionDetailResponse]) -> [PokemonDescription] {
+        return response.map { description in
+            PokemonDescription(description: description.description)
+        }
+    }
+    
 }

@@ -44,6 +44,7 @@
 		4CE7CF7529C156D200776A14 /* PDPokemonDetailRemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE7CF7429C156D200776A14 /* PDPokemonDetailRemoteRepository.swift */; };
 		4CE7CF7729C1571E00776A14 /* PDPokemonDetailLocalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE7CF7629C1571E00776A14 /* PDPokemonDetailLocalRepository.swift */; };
 		4CE7CF7929C158EF00776A14 /* PokemonDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CE7CF7829C158EF00776A14 /* PokemonDetail.storyboard */; };
+		4CE7CF7F29C1739000776A14 /* PokemonDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE7CF7E29C1739000776A14 /* PokemonDescription.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -99,6 +100,7 @@
 		4CE7CF7429C156D200776A14 /* PDPokemonDetailRemoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDPokemonDetailRemoteRepository.swift; sourceTree = "<group>"; };
 		4CE7CF7629C1571E00776A14 /* PDPokemonDetailLocalRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDPokemonDetailLocalRepository.swift; sourceTree = "<group>"; };
 		4CE7CF7829C158EF00776A14 /* PokemonDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PokemonDetail.storyboard; sourceTree = "<group>"; };
+		4CE7CF7E29C1739000776A14 /* PokemonDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDescription.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 				4C6C77BB29BFFB5F00CB207F /* PokemonDetail.swift */,
 				4CC9463829C12AB2002F38A7 /* PokemonHabitat.swift */,
 				4CC9463A29C12B69002F38A7 /* PokemonEvolution.swift */,
+				4CE7CF7E29C1739000776A14 /* PokemonDescription.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				4C6C77A729BFC15100CB207F /* PDHomeInteractor.swift in Sources */,
 				4CC9463729C1235C002F38A7 /* PokemonResponseMapper.swift in Sources */,
 				4CE7CF6F29C1542E00776A14 /* PDPokemonDetailInteractor.swift in Sources */,
+				4CE7CF7F29C1739000776A14 /* PokemonDescription.swift in Sources */,
 				4CE7CF6D29C1541E00776A14 /* PDPokemonDetailPresenter.swift in Sources */,
 				4C6C77AF29BFC5FA00CB207F /* PDHomeRemoteRepository.swift in Sources */,
 				4CC9463B29C12B69002F38A7 /* PokemonEvolution.swift in Sources */,

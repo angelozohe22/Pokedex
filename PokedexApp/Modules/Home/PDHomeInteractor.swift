@@ -14,6 +14,7 @@ protocol PDHomeInteractorProtocol {
     func retrievePokemonDetails(by pokemon: Pokemon, completion: @escaping (Result<PokemonDetail, NetworkingError>) -> Void)
     func retrievePokemonHabitat(by pokemon: Pokemon, completion: @escaping (Result<PokemonHabitat, NetworkingError>) -> Void)
     func retrievePokemonEvolutions(by pokemon: Pokemon, completion: @escaping (Result<PokemonEvolution, NetworkingError>) -> Void)
+    func retrievePokemonDescripion(by index: Int, completion: @escaping (Result<PokemonDescription, NetworkingError>) -> Void)
     
 }
 
@@ -139,5 +140,18 @@ extension PDHomeInteractor: PDHomeInteractorProtocol {
         }
     }
     
+    func retrievePokemonDescripion(by index: Int, completion: @escaping (Result<PokemonDescription, NetworkingError>) -> Void) {
+        remoteRepository.getPokemonDescription { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let response):
+                    let descriptions = PokemonResponseMapper.mapDescriptionResponseToDescription(response: response)
+                    completion(.success(descriptions[index]))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
+        }
+    }
     
 }
