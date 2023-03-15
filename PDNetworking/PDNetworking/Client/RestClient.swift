@@ -58,36 +58,31 @@ public class RestClient: RestClientProtocol {
         let headers = Dictionary(uniqueKeysWithValues: request.headers.map { key, value in (key.rawValue, value) })
         urlRequest.allHTTPHeaderFields = headers
         
-        if !PDNetworkReachability.shared.isConnected {
-            completion(.failure(.notConnectionInternet))
-        } else {
-            let task = urlSession.dataTask(with: urlRequest) { (data, response, error) in
-                if let error = error {
-                    return completion(.failure(.unexpectedError(error)))
-                }
-                
-                guard let response = response as? HTTPURLResponse, 200..<300 ~= response.statusCode else {
-                    return completion(.failure(.invalidResponse))
-                }
-                
-                if case 401 = response.statusCode {
-                    completion(.failure(.unauthorized))
-                }
-
-                guard let data = data else {
-                    return completion(.failure(.noContent))
-                }
-
-                do {
-                    try completion(.success(request.decode(data)))
-                } catch let error {
-                    completion(.failure(.parsingError(error, "Failed parsing object")))
-                }
+        let task = urlSession.dataTask(with: urlRequest) { (data, response, error) in
+            if let error = error {
+                return completion(.failure(.unexpectedError(error)))
             }
             
-            searchTask = task
-            searchTask?.resume()
+            guard let response = response as? HTTPURLResponse, 200..<300 ~= response.statusCode else {
+                return completion(.failure(.invalidResponse))
+            }
+            
+            if case 401 = response.statusCode {
+                completion(.failure(.unauthorized))
+            }
+
+            guard let data = data else {
+                return completion(.failure(.noContent))
+            }
+
+            do {
+                try completion(.success(request.decode(data)))
+            } catch let error {
+                completion(.failure(.parsingError(error, "Failed parsing object")))
+            }
         }
+        searchTask = task
+        searchTask?.resume()
     }
     
     public func request<AnyRequest: BaseRequest>(_ request: AnyRequest, parameters: [String:String]? = nil, completion: @escaping (Result<AnyRequest.Response, NetworkingError>) -> Void) {
@@ -112,34 +107,30 @@ public class RestClient: RestClientProtocol {
         let headers = Dictionary(uniqueKeysWithValues: request.headers.map { key, value in (key.rawValue, value) })
         urlRequest.allHTTPHeaderFields = headers
         
-        if !PDNetworkReachability.shared.isConnected {
-            completion(.failure(.notConnectionInternet))
-        }else {
-            urlSession.dataTask(with: urlRequest) { (data, response, error) in
-                if let error = error {
-                    return completion(.failure(.unexpectedError(error)))
-                }
-                
-                guard let response = response as? HTTPURLResponse, 200..<300 ~= response.statusCode else {
-                    return completion(.failure(.invalidResponse))
-                }
-                
-                if case 401 = response.statusCode {
-                    completion(.failure(.unauthorized))
-                }
-
-                guard let data = data else {
-                    return completion(.failure(.noContent))
-                }
-
-                do {
-                    try completion(.success(request.decode(data)))
-                } catch let error {
-                    completion(.failure(.parsingError(error, "Failed parsing object")))
-                }
+        urlSession.dataTask(with: urlRequest) { (data, response, error) in
+            if let error = error {
+                return completion(.failure(.unexpectedError(error)))
             }
-            .resume()
+            
+            guard let response = response as? HTTPURLResponse, 200..<300 ~= response.statusCode else {
+                return completion(.failure(.invalidResponse))
+            }
+            
+            if case 401 = response.statusCode {
+                completion(.failure(.unauthorized))
+            }
+
+            guard let data = data else {
+                return completion(.failure(.noContent))
+            }
+
+            do {
+                try completion(.success(request.decode(data)))
+            } catch let error {
+                completion(.failure(.parsingError(error, "Failed parsing object")))
+            }
         }
+        .resume()
     }
     
 }
