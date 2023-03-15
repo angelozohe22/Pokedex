@@ -82,11 +82,11 @@ final class PDPokemonDetailViewController: UIViewController {
         pokemonDescriptionLabel.textColor = PDColors.cl_Black
         pokemonDescriptionLabel.numberOfLines = 0
         pokemonDescriptionLabel.font = PDFonts.productSansRegular.withSize(16.0)
-        primaryTypeLabel.textAlignment = .left
+        primaryTypeLabel.textAlignment = .center
         primaryTypeLabel.textColor = PDColors.cl_White
         primaryTypeLabel.numberOfLines = 0
         primaryTypeLabel.font = PDFonts.productSansBold.withSize(16.0)
-        secondaryTypeLabel.textAlignment = .left
+        secondaryTypeLabel.textAlignment = .center
         secondaryTypeLabel.textColor = PDColors.cl_White
         secondaryTypeLabel.numberOfLines = 0
         secondaryTypeLabel.font = PDFonts.productSansBold.withSize(16.0)

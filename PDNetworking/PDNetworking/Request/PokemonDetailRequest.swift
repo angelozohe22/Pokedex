@@ -23,7 +23,9 @@ public struct PokemonDetailRequest: GetRequest {
     
     public var headers: [HeaderKey : String] { PDHeaders.getHeaders() }
     
-    let index: Int
+    var index: Int? = nil
+    
+    var name: String? = nil
     
     // MARK: - Lifecycle
     
@@ -31,21 +33,38 @@ public struct PokemonDetailRequest: GetRequest {
         self.index = index
     }
     
+    public init(name: String) {
+        self.name = name
+    }
+    
 }
 
 extension PokemonDetailRequest {
     
-    public var path: String { PDPath.pokemonId(index).path }
+    public var path: String {
+        if let index = index {
+            return PDPath.pokemonId(index).path
+        }
+        if let name = name {
+            return PDPath.pokemonName(name).path
+        }
+        return PDPath.none.path
+    }
     
 }
 
 public struct PokemonDetailResponse: Decodable {
     
+    public let id: Int
+    public let name: String
     public let abilities: [PokemonAbilityResponse]
     public let height: Int
     public let stats: [PokemonStatResponse]
     public let types: [PokemonTypeResponse]
     public let weight: Int
+    public var url: String {
+        return "\(PDEnvironment.Environment.prod.baseUrl)\(PDServiceType.pokemon.rawValue)/\(id)/"
+    }
     
 }
 

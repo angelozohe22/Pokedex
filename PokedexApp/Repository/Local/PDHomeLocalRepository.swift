@@ -110,7 +110,7 @@ final class PDHomeLocalRepository: PDHomeLocalRepositoryProtocol {
                                                imageUrl: pokemon.value(forKey: "image_url") as! String,
                                                detail: pokemonDetail)))
             }
-        } catch let error as NSError {
+        } catch {
             completion(.failure(.unexpectedErrorLoadData))
         }
     }

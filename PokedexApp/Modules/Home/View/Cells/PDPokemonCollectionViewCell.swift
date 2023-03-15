@@ -39,7 +39,7 @@ class PDPokemonCollectionViewCell: UICollectionViewCell {
         itemShadowContainerView.addRadius(cornerRadius: 12.0)
         itemShadowContainerView.addShadow(radius: 4.0)
         // Container
-        itemContainerView.backgroundColor = .clear
+        itemContainerView.backgroundColor = PDColors.cl_CadetGray
         itemContainerView.addRadius(cornerRadius: 12.0)
         itemContainerView.clipsToBounds = true
         // Labels

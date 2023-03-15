@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum PDServiceType: String {
+public enum PDServiceType: String {
     
     case pokemon = "/pokemon"
     case habitat = "/pokemon-habitat"

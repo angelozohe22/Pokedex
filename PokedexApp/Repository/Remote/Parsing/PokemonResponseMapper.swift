@@ -75,4 +75,10 @@ class PokemonResponseMapper {
                               evolvesFrom: response.evolvesFrom?.name)
     }
     
+    class func mapDetailResponseToPokemon(response: PokemonDetailResponse) -> Pokemon {
+        return Pokemon(name: response.name,
+                       url: response.url,
+                       detail: mapPokemonDetailResponseToPokemonDetail(response: response))
+    }
+    
 }
