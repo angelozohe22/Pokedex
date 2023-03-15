@@ -38,6 +38,8 @@ public struct PDImage {
         static let imgPokeballEmpty = "img-pokeball-empty"
         static let imgPokeball = "img-pokeball"
         static let imgPokemonTitle = "img-pokemon-title"
+        static let imgDisconnect = "img-disconnect"
+        static let imgPokemonNoVisible = "img-pokemon-no-visible"
         
     }
     
@@ -54,5 +56,11 @@ public struct PDImage {
     
     /// This image is used to display the title of the application
     public static let imgPokemonTitle = UIImage.loadImage(named: Name.imgPokemonTitle)
+    
+    /// This image is used to display that application has no internet connection
+    public static let imgDisconnect = UIImage.loadImage(named: Name.imgDisconnect)
+    
+    /// This image is used to show a non-visible pokemon
+    public static let imgPokemonNoVisible = UIImage.loadImage(named: Name.imgPokemonNoVisible)
     
 }

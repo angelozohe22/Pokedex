@@ -52,6 +52,7 @@ public struct PDIcon {
         static let icTypeRock = "ic-type-rock"
         static let icTypeSteel = "ic-type-steel"
         static let icTypeWater = "ic-type-water"
+        static let icArrowLeft = "ic-arrow-left"
         
     }
     
@@ -110,5 +111,8 @@ public struct PDIcon {
     
     /// This icon is used to indicate that the pokemon is a water type.
     public static let icTypeWater =  UIImage.loadImage(named: Name.icTypeWater)
+    
+    /// This icon is used to indicate that we will go backwards
+    public static let icArrowLeft =  UIImage.loadImage(named: Name.icArrowLeft)
     
 }

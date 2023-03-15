@@ -35,7 +35,11 @@ public struct PDColors {
     struct Name {
         
         static let cl_Black = "cl-black"
+        static let cl_BlackOpaque = "cl-black-opaque"
+        static let cl_Black_SemiTransparent = "cl-black-semi-transparent"
         static let cl_White = "cl-white"
+        static let cl_White_SemiTransparent = "cl-white-semi-transparent"
+        static let cl_Gray = "cl-gray"
         static let cl_LightGray = "cl-light-gray"
         static let cl_Shadow = "cl-shadow"
         static let cl_AirBlue = "cl-air-blue"
@@ -83,7 +87,19 @@ public struct PDColors {
     public static let cl_Black = UIColor.loadColor(named: Name.cl_Black)
     
     /// This color is used to text, background or another case
+    public static let cl_Black_SemiTransparent = UIColor.loadColor(named: Name.cl_Black_SemiTransparent)
+    
+    /// This color is used to background or another case
+    public static let cl_BlackOpaque = UIColor.loadColor(named: Name.cl_BlackOpaque)
+    
+    /// This color is used to text, background or another case
     public static let cl_White = UIColor.loadColor(named: Name.cl_White)
+    
+    /// This color is used to text, background or another case
+    public static let cl_White_SemiTransparent = UIColor.loadColor(named: Name.cl_White_SemiTransparent)
+    
+    /// This color is used to text, background or another case
+    public static let cl_Gray = UIColor.loadColor(named: Name.cl_Gray)
     
     /// This color is used to background or another case
     public static let cl_LightGray = UIColor.loadColor(named: Name.cl_LightGray)

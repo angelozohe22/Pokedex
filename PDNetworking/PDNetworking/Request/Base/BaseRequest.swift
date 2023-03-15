@@ -9,7 +9,7 @@ import Foundation
 
 public protocol BaseRequest {
     
-    // MARK: - Alias
+    // MARK: - Type
     
     associatedtype Response
     
