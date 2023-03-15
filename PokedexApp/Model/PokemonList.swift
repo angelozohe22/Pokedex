@@ -33,5 +33,8 @@ struct Pokemon {
     var detail: PokemonDetail? = nil
     var habitat: PokemonHabitat? = nil
     var evolution: PokemonEvolution? = nil
+    var description: String? = nil
+    var habitatName: String? = nil
+    var evolvesFrom: PokemonEvolvesFrom? = nil
     
 }

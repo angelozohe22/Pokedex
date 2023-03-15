@@ -23,6 +23,15 @@ public class PDEnvironment {
             }
         }
         
+        public var firebaseBaseUrl: String {
+            switch self {
+            case .prod:
+                return "https://pokedex-bb36f.firebaseio.com"
+            case .dev:
+                return "https://pokedex-bb36f.firebaseio.com"
+            }
+        }
+        
     }
     
     public static func getPokemonImageUrl(at index: Int) -> String {

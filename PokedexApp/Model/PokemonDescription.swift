@@ -1,5 +1,5 @@
 //
-//  PokemonHabitat.swift
+//  PokemonDetailDescription.swift
 //  PokedexApp
 //
 //  Created by Luis Angel Inga Mendoza on 14/03/23.
@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct PokemonHabitat {
+struct PokemonDescription {
     
-    let name: String
+    let description: String
     
 }

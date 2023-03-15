@@ -20,8 +20,22 @@ struct PokemonEvolves {
     
 }
 
+struct PokemonSpecies {
+    
+    let habitat: String
+    let evolvesFrom: String?
+    
+}
+
 struct PokemonSpecie {
     
+    let name: String
+    
+}
+
+struct PokemonEvolutionResult {
+    
+    let id: String
     let name: String
     
 }

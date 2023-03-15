@@ -52,6 +52,18 @@ struct PokemonDetailStat {
         self.statName = stat.statName
     }
     
+    var statNameFormatted: String {
+        switch statName {
+        case "hp": return "HP"
+        case "attack": return "ATK"
+        case "defense": return "DEF"
+        case "special-attack": return "SPA"
+        case "special-defense": return "SPD"
+        case "speed": return "SP"
+        default: return "OTHER"
+        }
+    }
+    
 }
 
 struct PokemonDetailType {
