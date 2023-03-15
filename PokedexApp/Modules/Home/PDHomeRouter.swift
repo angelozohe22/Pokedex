@@ -11,7 +11,7 @@ import PDKit
 protocol PDHomeRouterProtocol {
     
     func routeToPokemonDetail(pokemon: Pokemon)
-    func routeToSearchPokemon()
+    func routeToSearchPokemon(pokemonList: [Pokemon])
     
 }
 
@@ -39,9 +39,10 @@ extension PDHomeRouter: PDHomeRouterProtocol {
         self.viewController.navigationController?.pushViewController(destinationVC, animated: true)
     }
     
-    func routeToSearchPokemon() {
-        
+    func routeToSearchPokemon(pokemonList: [Pokemon]) {
+        let destinationVC = PDSearchPokemonViewController.storyboardInstance
+        destinationVC.configurator.set(pokemonList: pokemonList)
+        self.viewController.navigationController?.pushViewController(destinationVC, animated: true)
     }
-    
     
 }
