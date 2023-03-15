@@ -13,5 +13,6 @@ enum PDServiceType: String {
     case habitat = "/pokemon-habitat"
     case eggGroup = "/egg-group"
     case evolution = "/evolution-chain"
+    case specie = "/pokemon-species"
     
 }

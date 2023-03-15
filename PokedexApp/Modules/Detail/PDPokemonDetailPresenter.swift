@@ -9,6 +9,9 @@ import Foundation
 
 protocol PDPokemonDetailPresenterProtocol: AnyObject {
     
+    func goToParent()
+    func retrievePokemonData()
+    
 }
 
 final class PDPokemonDetailPresenter {
@@ -38,8 +41,16 @@ final class PDPokemonDetailPresenter {
 
 }
 
+// MARK: - PDPokemonDetailPresenterProtocol
+
 extension PDPokemonDetailPresenter: PDPokemonDetailPresenterProtocol {
     
+    func retrievePokemonData() {
+        self.view?.setValue(pokemon: pokemon)
+    }
     
+    func goToParent() {
+        router.routeToParent()
+    }
     
 }

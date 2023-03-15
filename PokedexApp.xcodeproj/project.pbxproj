@@ -31,6 +31,7 @@
 		4C6C77BC29BFFB5F00CB207F /* PokemonDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C77BB29BFFB5F00CB207F /* PokemonDetail.swift */; };
 		4C6C77BE29C099BB00CB207F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C6C77BD29C099BB00CB207F /* Localizable.strings */; };
 		4C6C77C029C09BCA00CB207F /* PokemonError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C77BF29C09BCA00CB207F /* PokemonError.swift */; };
+		4C9C4CB829C1FB42007AB3EC /* PokemonEvolvesFrom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9C4CB729C1FB42007AB3EC /* PokemonEvolvesFrom.swift */; };
 		4CC9462B29C0D2B7002F38A7 /* PokemonDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC9462A29C0D2B7002F38A7 /* PokemonDto.swift */; };
 		4CC9463429C1162D002F38A7 /* PokemonDtoMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC9463329C1162D002F38A7 /* PokemonDtoMapper.swift */; };
 		4CC9463729C1235C002F38A7 /* PokemonResponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC9463629C1235C002F38A7 /* PokemonResponseMapper.swift */; };
@@ -87,6 +88,7 @@
 		4C6C77BB29BFFB5F00CB207F /* PokemonDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetail.swift; sourceTree = "<group>"; };
 		4C6C77BD29C099BB00CB207F /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		4C6C77BF29C09BCA00CB207F /* PokemonError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonError.swift; sourceTree = "<group>"; };
+		4C9C4CB729C1FB42007AB3EC /* PokemonEvolvesFrom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonEvolvesFrom.swift; sourceTree = "<group>"; };
 		4CC9462A29C0D2B7002F38A7 /* PokemonDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDto.swift; sourceTree = "<group>"; };
 		4CC9463329C1162D002F38A7 /* PokemonDtoMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDtoMapper.swift; sourceTree = "<group>"; };
 		4CC9463629C1235C002F38A7 /* PokemonResponseMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonResponseMapper.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				4CC9463829C12AB2002F38A7 /* PokemonHabitat.swift */,
 				4CC9463A29C12B69002F38A7 /* PokemonEvolution.swift */,
 				4CE7CF7E29C1739000776A14 /* PokemonDescription.swift */,
+				4C9C4CB729C1FB42007AB3EC /* PokemonEvolvesFrom.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 			files = (
 				4CE7CF7729C1571E00776A14 /* PDPokemonDetailLocalRepository.swift in Sources */,
 				4C2C1BA029BEE4A1009F1F54 /* PokedexApp.xcdatamodeld in Sources */,
+				4C9C4CB829C1FB42007AB3EC /* PokemonEvolvesFrom.swift in Sources */,
 				4CE7CF6B29C153BE00776A14 /* PDPokemonDetailViewController.swift in Sources */,
 				4CC9462B29C0D2B7002F38A7 /* PokemonDto.swift in Sources */,
 				4CE7CF7129C1543900776A14 /* PDPokemonDetailRouter.swift in Sources */,

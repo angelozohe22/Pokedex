@@ -9,6 +9,8 @@ import UIKit
 
 protocol PDPokemonDetailRouterProtocol {
     
+    func routeToParent()
+    
 }
 
 final class PDPokemonDetailRouter {
@@ -25,8 +27,12 @@ final class PDPokemonDetailRouter {
 
 }
 
+// MARK: - PDPokemonDetailRouterProtocol
+
 extension PDPokemonDetailRouter: PDPokemonDetailRouterProtocol {
     
-    
+    func routeToParent() {
+        self.viewController.navigationController?.popViewController(animated: true)
+    }
     
 }

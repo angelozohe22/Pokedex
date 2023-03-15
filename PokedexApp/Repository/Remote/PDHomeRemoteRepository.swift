@@ -14,6 +14,7 @@ protocol PDHomeRemoteRepositoryProtocol {
     func getPokemonHabitat(by index: Int, completion: @escaping (Result<PokemonHabitatResponse, NetworkingError>) -> Void)
     func getPokemonEvolution(by index: Int, completion: @escaping (Result<PokemonEvolutionResponse, NetworkingError>) -> Void)
     func getPokemonDescription(completion: @escaping (Result<[PokemonDescriptionDetailResponse], NetworkingError>) -> Void)
+    func getPokemonMoreInformation(at index: Int, completion: @escaping (Result<PokemonSpeciesResponse, NetworkingError>) -> Void)
     
 }
 
@@ -45,6 +46,11 @@ final class PDHomeRemoteRepository: PDHomeRemoteRepositoryProtocol  {
     
     func getPokemonDescription(completion: @escaping (Result<[PokemonDescriptionDetailResponse], NetworkingError>) -> Void) {
         let request = PokemonDescriptionRequest()
+        RestClient.shared.request(request, completion: completion)
+    }
+    
+    func getPokemonMoreInformation(at index: Int, completion: @escaping (Result<PokemonSpeciesResponse, NetworkingError>) -> Void) {
+        let request = PokemonSpeciesRequest(index: index)
         RestClient.shared.request(request, completion: completion)
     }
     

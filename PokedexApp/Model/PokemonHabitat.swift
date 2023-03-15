@@ -9,7 +9,6 @@ import Foundation
 
 struct PokemonHabitat {
     
-    let id: Int
     let name: String
     
 }

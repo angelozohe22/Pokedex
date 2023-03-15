@@ -100,35 +100,20 @@ extension PDHomePresenter: PDHomePresenterProtocol {
             switch descriptionResult {
             case .success(let description):
                 currentPokemon.description = description.description
-                self.interactor.retrievePokemonHabitat(by: currentPokemon) { [weak self] habitatResult in
+                self.interactor.retrievePokemonMoreInformation(at: currentPokemon.id ?? 0) { [weak self] moreInformationResult in
                     guard let self = self else { return }
-                    switch habitatResult {
-                    case .success(let habitat):
-                        currentPokemon.habitat = habitat
-                        self.interactor.retrievePokemonEvolutions(by: currentPokemon) { [weak self] evolutionResult in
-                            guard let self = self else { return }
-                            self.view?.hideProgressIndicator()
-                            switch evolutionResult {
-                            case .success(let evolution):
-                                currentPokemon.evolution = evolution
-                                self.router.routeToPokemonDetail(pokemon: currentPokemon)
-                            case .failure(let error):
-                                let errorType: PokemonError
-                                switch error {
-                                case .notConnectionInternet:
-                                    errorType = .noConection
-                                case .invalidRequestError, .invalidResponse, .noContent ,.parsingError:
-                                    errorType = .noData
-                                case .unexpectedError:
-                                    errorType = .unexpectedError
-                                case .unauthorized:
-                                    errorType = .unauthorized
-                                }
-                                self.view?.showError(errorType: errorType)
-                            }
-                        }
+                    self.view?.hideProgressIndicator()
+                    switch moreInformationResult {
+                    case .success(let moreInformation):
+                        currentPokemon.habitatName = moreInformation.habitat
+                        let pokemonEvolves = self.pokemonList.first(where: { $0.name == moreInformation.evolvesFrom })
+                        if let pokemonEvolves = pokemonEvolves {
+                            currentPokemon.evolvesFrom = PokemonEvolvesFrom(id: pokemonEvolves.id ?? 0,
+                                                                            name: pokemonEvolves.name,
+                                                                            imageUrl: pokemonEvolves.imageUrl ?? "")
+                        } 
+                        self.router.routeToPokemonDetail(pokemon: currentPokemon)
                     case .failure(let error):
-                        self.view?.hideProgressIndicator()
                         let errorType: PokemonError
                         switch error {
                         case .notConnectionInternet:
@@ -143,7 +128,6 @@ extension PDHomePresenter: PDHomePresenterProtocol {
                         self.view?.showError(errorType: errorType)
                     }
                 }
-                
             case .failure(let error):
                 self.view?.hideProgressIndicator()
                 let errorType: PokemonError
