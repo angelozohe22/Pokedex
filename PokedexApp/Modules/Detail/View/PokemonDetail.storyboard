@@ -70,10 +70,10 @@
                                                 <rect key="frame" x="0.0" y="228" width="393" height="527.66666666666663"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="TLe-DP-pYC">
-                                                        <rect key="frame" x="79.666666666666686" y="8" width="234" height="40"/>
+                                                        <rect key="frame" x="68.666666666666686" y="8" width="256" height="40"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HvH-St-Yjo">
-                                                                <rect key="frame" x="0.0" y="0.0" width="113" height="40"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="124" height="40"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pc7-bi-Upw">
                                                                         <rect key="frame" x="16" y="8" width="24" height="24"/>
@@ -83,7 +83,7 @@
                                                                         </constraints>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HqB-n2-YYW">
-                                                                        <rect key="frame" x="44" y="9.9999999999999982" width="53" height="20.333333333333329"/>
+                                                                        <rect key="frame" x="44" y="9.9999999999999982" width="64" height="20.333333333333329"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -95,13 +95,13 @@
                                                                     <constraint firstItem="Pc7-bi-Upw" firstAttribute="top" secondItem="HvH-St-Yjo" secondAttribute="top" constant="8" id="9ge-sr-sAA"/>
                                                                     <constraint firstItem="HqB-n2-YYW" firstAttribute="centerY" secondItem="Pc7-bi-Upw" secondAttribute="centerY" id="Dju-mY-2iz"/>
                                                                     <constraint firstItem="Pc7-bi-Upw" firstAttribute="leading" secondItem="HvH-St-Yjo" secondAttribute="leading" constant="16" id="ERE-LJ-KOJ"/>
-                                                                    <constraint firstAttribute="width" constant="113" id="VRr-3h-7rq"/>
+                                                                    <constraint firstAttribute="width" constant="124" id="VRr-3h-7rq"/>
                                                                     <constraint firstAttribute="bottom" secondItem="Pc7-bi-Upw" secondAttribute="bottom" constant="8" id="v40-As-daO"/>
                                                                     <constraint firstAttribute="trailing" secondItem="HqB-n2-YYW" secondAttribute="trailing" constant="16" id="y6m-Bo-TrV"/>
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Swg-Oc-lab">
-                                                                <rect key="frame" x="121" y="0.0" width="113" height="40"/>
+                                                                <rect key="frame" x="132" y="0.0" width="124" height="40"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h7k-DP-IDV">
                                                                         <rect key="frame" x="16" y="8" width="24" height="24"/>
@@ -111,7 +111,7 @@
                                                                         </constraints>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7wj-ab-Iqh">
-                                                                        <rect key="frame" x="44" y="9.9999999999999982" width="53" height="20.333333333333329"/>
+                                                                        <rect key="frame" x="44" y="9.9999999999999982" width="64" height="20.333333333333329"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -123,7 +123,7 @@
                                                                     <constraint firstItem="h7k-DP-IDV" firstAttribute="top" secondItem="Swg-Oc-lab" secondAttribute="top" constant="8" id="CHp-nK-h65"/>
                                                                     <constraint firstAttribute="trailing" secondItem="7wj-ab-Iqh" secondAttribute="trailing" constant="16" id="EZw-rE-J3R"/>
                                                                     <constraint firstAttribute="bottom" secondItem="h7k-DP-IDV" secondAttribute="bottom" constant="8" id="SdT-lB-tKF"/>
-                                                                    <constraint firstAttribute="width" constant="113" id="WC2-Jn-eUl"/>
+                                                                    <constraint firstAttribute="width" constant="124" id="WC2-Jn-eUl"/>
                                                                     <constraint firstItem="7wj-ab-Iqh" firstAttribute="leading" secondItem="h7k-DP-IDV" secondAttribute="trailing" constant="4" id="ezk-rL-SMu"/>
                                                                     <constraint firstItem="7wj-ab-Iqh" firstAttribute="centerY" secondItem="h7k-DP-IDV" secondAttribute="centerY" id="yKg-oG-jka"/>
                                                                 </constraints>

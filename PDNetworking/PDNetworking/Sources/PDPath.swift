@@ -10,6 +10,7 @@ import Foundation
 public enum PDPath {
     
     case pokemonId(Int)
+    case pokemonName(String)
     case none
     
     public var path: String {
@@ -17,6 +18,8 @@ public enum PDPath {
         switch self {
         case .pokemonId(let id):
             return "/\(id)/"
+        case .pokemonName(let name):
+            return "/\(name)/"
         case .none:
             return ""
         }

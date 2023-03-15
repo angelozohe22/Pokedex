@@ -144,14 +144,10 @@ extension PDHomePresenter: PDHomePresenterProtocol {
                 self.view?.showError(errorType: errorType)
             }
         }
-        
-        
-        
-        
     }
     
     func goToSearchPokemon() {
-        self.router.routeToSearchPokemon()
+        self.router.routeToSearchPokemon(pokemonList: pokemonList)
     }
     
 }

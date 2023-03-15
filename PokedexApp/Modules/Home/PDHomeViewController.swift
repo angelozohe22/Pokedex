@@ -170,11 +170,13 @@ extension PDHomeViewController: UICollectionViewDelegateFlowLayout {
 extension PDHomeViewController: PDHomeViewProtocol {
     
     func showLoading() {
+        floatingButtonContainer.isHidden = true
         loadingIndicatorView.startAnimating()
         loadingIndicatorView.isHidden = false
     }
     
     func hideLoading() {
+        floatingButtonContainer.isHidden = false
         loadingIndicatorView.stopAnimating()
         loadingIndicatorView.isHidden = true
     }
@@ -188,6 +190,7 @@ extension PDHomeViewController: PDHomeViewProtocol {
     }
     
     func showEmpty() {
+        floatingButtonContainer.isHidden = true
         collectionView.isHidden = true
         emptyContainerView.isHidden = false
         emptyImageView.image = PDImage.imgPokeballEmpty
@@ -195,6 +198,7 @@ extension PDHomeViewController: PDHomeViewProtocol {
     }
     
     func showError(errorType: PokemonError) {
+        floatingButtonContainer.isHidden = true
         collectionView.isHidden = true
         emptyContainerView.isHidden = false
         let errorImage: UIImage
