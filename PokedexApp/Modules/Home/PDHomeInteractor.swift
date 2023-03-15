@@ -12,8 +12,8 @@ protocol PDHomeInteractorProtocol {
     
     func retrievePokemonList(completion: @escaping (Result<PokemonList, NetworkingError>) -> Void)
     func retrievePokemonDetails(by pokemon: Pokemon, completion: @escaping (Result<PokemonDetail, NetworkingError>) -> Void)
-    func retrievePokemonHabitat(by pokemon: Pokemon, completion: @escaping (Result<PokemonHabitat, NetworkingError>) -> Void)
-    func retrievePokemonEvolutions(by pokemon: Pokemon, completion: @escaping (Result<PokemonEvolution, NetworkingError>) -> Void)
+    func retrievePokemonDescripion(by index: Int, completion: @escaping (Result<PokemonDescription, NetworkingError>) -> Void)
+    func retrievePokemonMoreInformation(at index: Int, completion: @escaping (Result<PokemonSpecies, NetworkingError>) -> Void)
     
 }
 
@@ -23,6 +23,8 @@ final class PDHomeInteractor {
     
     private var localRepository: PDHomeLocalRepositoryProtocol
     private var remoteRepository: PDHomeRemoteRepositoryProtocol
+    var pokemoEvolutionList: [PokemonEvolutionResult] = []
+    
     
     // MARK: - Lifecycle
     
@@ -113,12 +115,13 @@ extension PDHomeInteractor: PDHomeInteractorProtocol {
         }
     }
     
-    func retrievePokemonHabitat(by pokemon: Pokemon, completion: @escaping (Result<PokemonHabitat, NetworkingError>) -> Void) {
-        remoteRepository.getPokemonHabitat(by: pokemon.id ?? 0) { result in
+    func retrievePokemonDescripion(by index: Int, completion: @escaping (Result<PokemonDescription, NetworkingError>) -> Void) {
+        remoteRepository.getPokemonDescription { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let response):
-                    completion(.success(PokemonResponseMapper.mapHabitatResponseToHabitat(response: response)))
+                    let descriptions = PokemonResponseMapper.mapDescriptionResponseToDescription(response: response)
+                    completion(.success(descriptions[index]))
                 case .failure(let error):
                     completion(.failure(error))
                 }
@@ -126,18 +129,18 @@ extension PDHomeInteractor: PDHomeInteractorProtocol {
         }
     }
     
-    func retrievePokemonEvolutions(by pokemon: Pokemon, completion: @escaping (Result<PokemonEvolution, NetworkingError>) -> Void) {
-        remoteRepository.getPokemonEvolution(by: pokemon.id ?? 0) { result in
+    func retrievePokemonMoreInformation(at index: Int, completion: @escaping (Result<PokemonSpecies, NetworkingError>) -> Void) {
+        remoteRepository.getPokemonMoreInformation(at: index) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let response):
-                    completion(.success(PokemonResponseMapper.mapEvolutionResponseToEvolution(response: response)))
+                    let description = PokemonResponseMapper.mapSpeciesResponseToSpecies(response: response)
+                    completion(.success(description))
                 case .failure(let error):
                     completion(.failure(error))
                 }
             }
         }
     }
-    
     
 }

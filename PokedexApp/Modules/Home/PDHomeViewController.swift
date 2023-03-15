@@ -226,3 +226,11 @@ extension PDHomeViewController: PDHomeViewProtocol {
     }
     
 }
+
+// MARK: - StoryboardInstantiable
+
+extension PDHomeViewController: StoryboardInstantiable {
+    
+    static var storyboardName: String { "Home" }
+    
+}

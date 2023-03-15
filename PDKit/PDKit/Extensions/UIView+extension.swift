@@ -32,4 +32,15 @@ public extension UIView {
         return self
     }
     
+    func addBottomCorner(cornerRadius: CGFloat = 8.0){
+        self.layer.cornerRadius = cornerRadius
+        self.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+    }
+    
+    func addTopCorner(cornerRadius: CGFloat = 8.0){
+        self.layer.cornerRadius = cornerRadius
+        self.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+    }
+    
+    
 }

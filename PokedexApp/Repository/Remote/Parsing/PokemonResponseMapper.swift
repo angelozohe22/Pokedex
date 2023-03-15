@@ -41,8 +41,7 @@ class PokemonResponseMapper {
     }
     
     class func mapHabitatResponseToHabitat(response: PokemonHabitatResponse) -> PokemonHabitat {
-        return PokemonHabitat(id: response.id,
-                              name: response.name)
+        return PokemonHabitat(name: response.name)
     }
     
     class func mapEvolutionResponseToEvolution(response: PokemonEvolutionResponse) -> PokemonEvolution {
@@ -63,6 +62,17 @@ class PokemonResponseMapper {
     
     class func mapSpecieResponseToSpecie(response: PokemonSpecieResponse) -> PokemonSpecie {
         return PokemonSpecie(name: response.name)
+    }
+    
+    class func mapDescriptionResponseToDescription(response: [PokemonDescriptionDetailResponse]) -> [PokemonDescription] {
+        return response.map { description in
+            PokemonDescription(description: description.description)
+        }
+    }
+    
+    class func mapSpeciesResponseToSpecies(response: PokemonSpeciesResponse) -> PokemonSpecies {
+        return PokemonSpecies(habitat: response.habitat.name,
+                              evolvesFrom: response.evolvesFrom?.name)
     }
     
 }
