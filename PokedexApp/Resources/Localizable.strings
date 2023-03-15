@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  PokedexApp
+
+  Created by Luis Angel Inga Mendoza on 14/03/23.
+  
+*/
+
+// MARK: - Empty
+
+"EMPTY_NO_POKEMONS_DESCRIPTION" = "We have not found any available pokémon.\nPlease try again later.";
+
+// MARK: - Error
+
+"ERROR_NO_CONNECTION_DESCRIPTION" = "To be able to find pokemons it is necessary to have a stable internet connection.\nPlease try again later.";
+"ERROR_NO_DATA_DESCRIPTION" = "At this time we have not found any information.\nPlease try again.";
+"ERROR_UNEXPECTED_DESCRIPTION" = "We have had an unexpected error, we are sorry for what happened.\nPlease try again.";
+"ERROR_UNAUTHORIZED_DESCRIPTION" = "At this time you do not have the necessary permissions to perform a search.\nPlease try again when you are authorized.";

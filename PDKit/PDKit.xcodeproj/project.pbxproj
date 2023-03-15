@@ -29,6 +29,7 @@
 		4C2C1C5629BF0ED3009F1F54 /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2C1C5529BF0ED3009F1F54 /* UIView+extension.swift */; };
 		4C2C1C5829BF0FA4009F1F54 /* UIView+constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2C1C5729BF0FA4009F1F54 /* UIView+constraints.swift */; };
 		4C2C1C5B29BF10DC009F1F54 /* StoryboardInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2C1C5A29BF10DC009F1F54 /* StoryboardInstantiable.swift */; };
+		4CC9463E29C13C30002F38A7 /* PDProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC9463D29C13C30002F38A7 /* PDProgressView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		4C2C1C5529BF0ED3009F1F54 /* UIView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
 		4C2C1C5729BF0FA4009F1F54 /* UIView+constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+constraints.swift"; sourceTree = "<group>"; };
 		4C2C1C5A29BF10DC009F1F54 /* StoryboardInstantiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardInstantiable.swift; sourceTree = "<group>"; };
+		4CC9463D29C13C30002F38A7 /* PDProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDProgressView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				4C2C1C4329BEEC84009F1F54 /* Extensions */,
 				4C2C1C3329BEEB13009F1F54 /* Resources */,
 				4C2C1C4829BEECED009F1F54 /* Source */,
+				4CC9463C29C13C1D002F38A7 /* Components */,
 				4C2C1C1329BEEA36009F1F54 /* PDKit.h */,
 				4C2C1C1429BEEA36009F1F54 /* PDKit.docc */,
 			);
@@ -177,6 +180,14 @@
 				4C2C1C5A29BF10DC009F1F54 /* StoryboardInstantiable.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		4CC9463C29C13C1D002F38A7 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				4CC9463D29C13C30002F38A7 /* PDProgressView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,6 +310,7 @@
 				4C2C1C4C29BEF17C009F1F54 /* UIImage+extension.swift in Sources */,
 				4C2C1C4529BEECAF009F1F54 /* UIFont+extension.swift in Sources */,
 				4C2C1C4729BEECD1009F1F54 /* Bundle+extension.swift in Sources */,
+				4CC9463E29C13C30002F38A7 /* PDProgressView.swift in Sources */,
 				4C2C1C5429BF05C4009F1F54 /* UIColor+extension.swift in Sources */,
 				4C2C1C4E29BEF1AD009F1F54 /* PDImage.swift in Sources */,
 				4C2C1C5029BEF42C009F1F54 /* PDIcon.swift in Sources */,
@@ -380,7 +392,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -437,7 +449,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
