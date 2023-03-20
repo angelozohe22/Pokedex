@@ -47,13 +47,11 @@ extension PDHomeInteractor: PDHomeInteractorProtocol {
                 DispatchQueue.main.async {
                     switch result {
                     case .success(let response):
-                        var pokemons: [Pokemon] = []
-                        if !response.results.isEmpty {
-                            response.results.forEach { pokemon in
-                                let newPokemon = Pokemon(name: pokemon.name,
-                                                         url: pokemon.url)
-                                pokemons.append(newPokemon)
-                                self.localRepository.insertPokemon(pokemon: PokemonDtoMapper.mapPokemonToPokemonDto(pokemon: newPokemon))
+                        let pokemons = response.results.map { Pokemon(name: $0.name, url: $0.url) }
+                        if !pokemons.isEmpty {
+                            let pokemonsDto = pokemons.map { PokemonDtoMapper.mapPokemonToPokemonDto(pokemon: $0) }
+                            for pokemonDto in pokemonsDto {
+                                self.localRepository.insertPokemon(pokemon: pokemonDto)
                             }
                             completion(.success(PokemonList(pokemons: pokemons)))
                         } else { completion(.failure(.noContent)) }
@@ -67,10 +65,7 @@ extension PDHomeInteractor: PDHomeInteractorProtocol {
                 switch result {
                 case .success(let response):
                     if !response.isEmpty {
-                        let pokemonList = response.map { pokemonDto in
-                            Pokemon(name: pokemonDto.name,
-                                    url: pokemonDto.url)
-                        }
+                        let pokemonList = response.map { Pokemon(name: $0.name, url: $0.url) }
                         completion(.success(PokemonList(pokemons: pokemonList)))
                     } else { completion(.failure(.noContent)) }
                 case .failure:

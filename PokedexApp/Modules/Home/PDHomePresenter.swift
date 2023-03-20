@@ -53,26 +53,29 @@ extension PDHomePresenter: PDHomePresenterProtocol {
             switch result {
             case .success(let pokemonResult):
                 let pokemons = pokemonResult.pokemons
-                if !pokemons.isEmpty {
-                    self.pokemonList = pokemons
-                    pokemons.enumerated().forEach { (index, pokemon) in
-                        self.interactor.retrievePokemonDetails(by: pokemon) { [weak self] result in
-                            guard let self = self else { return }
-                            switch result {
-                            case .success(let pokemonDetail):
-                                self.pokemonList[index].detail = pokemonDetail
-                                if (index+1) == self.pokemonListSize {
-                                    self.view?.hideLoading()
-                                    self.view?.reloadCollectionView()
-                                }
-                            case .failure: break
-                            }
-                        }
-                    }
-                } else {
+                if pokemons.isEmpty {
                     self.view?.hideLoading()
                     self.view?.showEmpty()
                     self.pokemonList = []
+                    return
+                }
+                self.pokemonList = pokemons
+                let dispatchGroup = DispatchGroup()
+                for (index, pokemon) in pokemons.enumerated() {
+                    dispatchGroup.enter()
+                    self.interactor.retrievePokemonDetails(by: pokemon) { [weak self] result in
+                        guard let self = self else { return }
+                        switch result {
+                        case .success(let pokemonDetail):
+                            self.pokemonList[index].detail = pokemonDetail
+                        case .failure: break
+                        }
+                        dispatchGroup.leave()
+                    }
+                }
+                dispatchGroup.notify(queue: .main) {
+                    self.view?.hideLoading()
+                    self.view?.reloadCollectionView()
                 }
             case .failure(let error):
                 self.view?.hideLoading()
