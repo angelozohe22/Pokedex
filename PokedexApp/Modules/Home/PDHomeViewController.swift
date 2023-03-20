@@ -182,7 +182,7 @@ extension PDHomeViewController: PDHomeViewProtocol {
     }
     
     func showProgressIndicator() {
-        PDProgressView.shared.showProgressView()
+        PDProgressView.shared.showProgressView(in: self.view)
     }
     
     func hideProgressIndicator() {

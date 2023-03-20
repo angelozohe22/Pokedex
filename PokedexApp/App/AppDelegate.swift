@@ -25,6 +25,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        // Stop network reachability
+        PDNetworkReachability.shared.stopMonitoring()
+    }
 
     // MARK: - Core Data stack
 
