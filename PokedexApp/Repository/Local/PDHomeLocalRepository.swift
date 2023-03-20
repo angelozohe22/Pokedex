@@ -22,94 +22,97 @@ final class PDHomeLocalRepository: PDHomeLocalRepositoryProtocol {
     private let bdContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     func getPokemonList(completion: (Result<[PokemonDto], PokemonError>) -> Void) {
-        var pokemonList: [PokemonDto] = []
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "T_pokemon")
-        
+        let fetchRequest: NSFetchRequest<T_pokemon> = T_pokemon.fetchRequest()
         do {
-            let result = try bdContext.fetch(fetchRequest)
-            if let managedObject = result as? [NSManagedObject] {
-                if !managedObject.isEmpty {
-                    managedObject.forEach { pokemon in
-                        let pokemonDetail = try? JSONDecoder().decode(PokemonDetailDto.self,
-                                                                      from: (((pokemon.value(forKey: "pokemon_detail") as? String)?.data(using: .utf8) ?? nil)!))
-                        pokemonList.append(
-                            PokemonDto(id: pokemon.value(forKey: "id") as? Int ?? 0,
-                                       name: pokemon.value(forKey: "name") as! String,
-                                       url: pokemon.value(forKey: "url") as! String,
-                                       imageUrl: pokemon.value(forKey: "image_url") as! String,
-                                       detail: pokemonDetail)
-                        )
-                    }
-                    completion(.success(pokemonList))
-                } else { completion(.failure(.noData)) }
+            let results = try bdContext.fetch(fetchRequest)
+            let pokemonList = results.compactMap { pokemon -> PokemonDto? in
+                guard let name = pokemon.name,
+                      let url = pokemon.url,
+                      let imageUrl = pokemon.image_url else {
+                    return nil
+                }
+                let id = pokemon.id
+                let pokemonDetail = try? JSONDecoder().decode(PokemonDetailDto.self, from: (pokemon.pokemon_detail?.data(using: .utf8) ?? Data()))
+                return PokemonDto(id: Int(id), name: name, url: url, imageUrl: imageUrl, detail: pokemonDetail)
             }
+            if pokemonList.isEmpty {
+                completion(.failure(.noData))
+                return
+            }
+            completion(.success(pokemonList))
         } catch {
             completion(.failure(.unexpectedError))
         }
     }
     
     func insertPokemon(pokemon: PokemonDto) {
-        let pokemonEntity = NSEntityDescription.entity(forEntityName: "T_pokemon", in: bdContext)!
-        do{
-            let newPokemon = NSManagedObject(entity: pokemonEntity, insertInto: bdContext)
-            let pokemonDetail = try? JSONEncoder().encode(pokemon.detail)
-            newPokemon.setValue(Int(pokemon.id), forKey: "id")
-            newPokemon.setValue(pokemon.name, forKey: "name")
-            newPokemon.setValue(pokemon.url, forKey: "url")
-            newPokemon.setValue(pokemon.imageUrl, forKey: "image_url")
-            newPokemon.setValue(pokemonDetail == nil ? nil : String(data: pokemonDetail!, encoding: .utf8)!, forKey: "pokemon_detail")
-            do {
-                try bdContext.save()
-            } catch {
-                print("---->> Error save add pokemon : \(error)")
-            }
-            
+        guard let pokemonEntity = NSEntityDescription.entity(forEntityName: "T_pokemon", in: bdContext) else {
+            print("---->> Error creating pokemon entity")
+            return
+        }
+        let newPokemon = NSManagedObject(entity: pokemonEntity, insertInto: bdContext)
+        newPokemon.setValue(Int(pokemon.id), forKey: "id")
+        newPokemon.setValue(pokemon.name, forKey: "name")
+        newPokemon.setValue(pokemon.url, forKey: "url")
+        newPokemon.setValue(pokemon.imageUrl, forKey: "image_url")
+        if let pokemonDetailData = try? JSONEncoder().encode(pokemon.detail),
+           let pokemonDetailString = String(data: pokemonDetailData, encoding: .utf8) {
+            newPokemon.setValue(pokemonDetailString, forKey: "pokemon_detail")
+        }
+        // Save Data
+        do {
+            try bdContext.save()
         } catch {
-            print("---->> Error add pokemon: \(error)")
+            print("---->> Error save add pokemon : \(error)")
         }
     }
     
     func updatePokemon(pokemon: PokemonDto) {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = .init(entityName: "T_pokemon")
         fetchRequest.predicate = NSPredicate(format: "id ==\(pokemon.id)")
-        
         do {
+            // Fetch request
             let result = try bdContext.fetch(fetchRequest)
-            if result.count > 0 {
-                let objUpdate = result[0] as! NSManagedObject
-                let pokemonDetail = try? JSONEncoder().encode(pokemon.detail)
-                objUpdate.setValue(pokemon.name, forKey: "name")
-                objUpdate.setValue(pokemon.url, forKey: "url")
-                objUpdate.setValue(pokemon.imageUrl, forKey: "image_url")
-                objUpdate.setValue(pokemonDetail == nil ? nil : String(data: pokemonDetail!, encoding: .utf8)!, forKey: "pokemon_detail")
-                do {
-                    try bdContext.save()
-                } catch {
-                    print("---->> Error update pokemon : \(error)")
-                }
+            guard let objUpdate = result.first as? NSManagedObject else {
+                return
             }
-            
+            // Update data into bd oject
+            guard let pokemonDetailData = try? JSONEncoder().encode(pokemon.detail),
+                  let pokemonDetailString = String(data: pokemonDetailData, encoding: .utf8) else {
+                return
+            }
+            objUpdate.setValue(pokemon.name, forKey: "name")
+            objUpdate.setValue(pokemon.url, forKey: "url")
+            objUpdate.setValue(pokemon.imageUrl, forKey: "image_url")
+            objUpdate.setValue(pokemonDetailString, forKey: "pokemon_detail")
+            // Save data
+            try bdContext.save()
         } catch let error as NSError {
             print("---->> Error update pokemon : \(error)")
         }
     }
     
     func getPokemon(by id: Int, completion: (Result<PokemonDto, PokemonError>) -> Void) {
-        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = .init(entityName: "T_pokemon")
+        let fetchRequest: NSFetchRequest<T_pokemon> = T_pokemon.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id ==\(id)")
         do {
+            // Fetch request
             let result = try bdContext.fetch(fetchRequest)
-            if result.count > 0 {
-                let pokemon = result[0] as! NSManagedObject
-                let pokemonDetail = try? JSONDecoder().decode(PokemonDetailDto.self,
-                                                              from: (((pokemon.value(forKey: "pokemon_detail") as? String)?.data(using: .utf8) ?? nil)!))
-                
-                completion(.success(PokemonDto(id: pokemon.value(forKey: "id") as? Int ?? 0,
-                                               name: pokemon.value(forKey: "name") as! String,
-                                               url: pokemon.value(forKey: "url") as! String,
-                                               imageUrl: pokemon.value(forKey: "image_url") as! String,
-                                               detail: pokemonDetail)))
+            guard let pokemon = result.first else {
+                completion(.failure(.unexpectedErrorLoadData))
+                return
             }
+            // Get information
+            guard let name = pokemon.name,
+                  let url = pokemon.url,
+                  let imageUrl = pokemon.image_url else {
+                completion(.failure(.unexpectedErrorLoadData))
+                return
+            }
+            let id = pokemon.id
+            let pokemonDetail = try? JSONDecoder().decode(PokemonDetailDto.self, from: (pokemon.pokemon_detail?.data(using: .utf8) ?? Data()))
+            // Return data
+            completion(.success(PokemonDto(id: Int(id), name: name, url: url, imageUrl: imageUrl, detail: pokemonDetail)))
         } catch {
             completion(.failure(.unexpectedErrorLoadData))
         }

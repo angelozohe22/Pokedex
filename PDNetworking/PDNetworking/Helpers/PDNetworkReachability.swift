@@ -32,7 +32,7 @@ final public class PDNetworkReachability {
         monitor.start(queue: queue)
     }
     
-    func stopMonitoring() {
+    public func stopMonitoring() {
         if isMonitoring {
             monitor.cancel()
             isMonitoring = false

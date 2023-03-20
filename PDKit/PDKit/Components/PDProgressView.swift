@@ -15,28 +15,33 @@ public class PDProgressView {
     
     var containerView = UIView()
     var containerIndicator = UIView()
-    var activityIndicator = UIActivityIndicatorView()
+    var activityIndicator = UIActivityIndicatorView(style: .large)
     
-    public func showProgressView() {
-        let window = UIWindow(frame: UIScreen.main.bounds)
+    public var containerSize: CGFloat = 80
+    public var indicatorSize: CGFloat = 40
+    public var containerColor = PDColors.cl_White
+    public var backgroundColor = PDColors.cl_BlackOpaque
+    public var indicatorColor = UIColor.gray
+    
+    public func showProgressView(in parentView: UIView) {
         // Container
-        containerView.frame = window.frame
-        containerView.center = window.center
-        containerView.backgroundColor = PDColors.cl_BlackOpaque
+        containerView.frame = parentView.bounds
+        containerView.backgroundColor = backgroundColor
         containerView.addSubview(containerIndicator)
         // Container indicator
-        containerIndicator.frame = CGRect(x: 0, y: 0, width: 80, height: 80)
-        containerIndicator.center = window.center
-        containerIndicator.backgroundColor = PDColors.cl_White
+        containerIndicator.frame = CGRect(x: 0, y: 0, width: containerSize, height: containerSize)
+        containerIndicator.center = containerView.center
+        containerIndicator.backgroundColor = containerColor
         containerIndicator.clipsToBounds = true
         containerIndicator.layer.cornerRadius = 10
         containerIndicator.addSubview(activityIndicator)
         // Indicator
-        activityIndicator.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
-        activityIndicator.style = .large
-        activityIndicator.color = UIColor.gray
-        activityIndicator.center = CGPoint(x: containerIndicator.bounds.width / 2, y: containerIndicator.bounds.height / 2)
-        UIApplication.shared.keyWindow?.addSubview(containerView)
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.frame = CGRect(x: 0, y: 0, width: indicatorSize, height: indicatorSize)
+        activityIndicator.color = indicatorColor
+        activityIndicator.centerXAnchor.constraint(equalTo: containerIndicator.centerXAnchor).isActive = true
+        activityIndicator.centerYAnchor.constraint(equalTo: containerIndicator.centerYAnchor).isActive = true
+        parentView.addSubview(containerView)
         activityIndicator.startAnimating()
     }
     

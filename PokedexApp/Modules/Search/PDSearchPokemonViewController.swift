@@ -162,7 +162,7 @@ extension PDSearchPokemonViewController: PDSearchPokemonView {
     }
     
     func showProgressIndicator() {
-        PDProgressView.shared.showProgressView()
+        PDProgressView.shared.showProgressView(in: self.view)
     }
     
     func hideProgressIndicator() {
