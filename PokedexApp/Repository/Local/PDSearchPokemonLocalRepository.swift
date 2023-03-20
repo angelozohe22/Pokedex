@@ -65,8 +65,10 @@ final class PDSearchPokemonLocalRepository: PDSearchPokemonLocalRepositoryProtoc
             objUpdate.setValue(pokemonDetailString, forKey: "pokemon_detail")
             // Save data
             try bdContext.save()
+            completion(.success(true))
         } catch let error as NSError {
             print("---->> Error update pokemon : \(error)")
+            completion(.failure(.unexpectedErrorLoadData))
         }
     }
     
