@@ -7,6 +7,7 @@
 
 import UIKit
 import PDKit
+import SkeletonView
 
 protocol PDHomeViewProtocol: AnyObject {
     
@@ -26,10 +27,10 @@ final class PDHomeViewController: UIViewController {
     
     @IBOutlet weak var pokemonTitleImageView: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var loadingIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var emptyContainerView: UIView!
     @IBOutlet weak var emptyImageView: UIImageView!
     @IBOutlet weak var emptyDescriptionLabel: UILabel!
+    @IBOutlet weak var emptyButton: UIButton!
     @IBOutlet weak var floatingButtonContainer: UIView!
     @IBOutlet weak var floatingButtonImageView: UIImageView!
     
@@ -37,6 +38,10 @@ final class PDHomeViewController: UIViewController {
     
     lazy var configurator: PDHomeConfigurator = { return PDHomeConfigurator(from: self) }()
     lazy var presenter: PDHomePresenterProtocol = { return self.configurator.configure() }()
+    
+    private lazy var refreshControl: UIRefreshControl = {
+        return UIRefreshControl()
+    }()
     
     // MARK: - Lifecycle
     
@@ -51,6 +56,12 @@ final class PDHomeViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
     }
     
+    // MARK: - IBActions
+    
+    @IBAction func emptyButtonAction(_ sender: Any) {
+        presenter.retrievePokemonList()
+    }
+    
     // MARK: - Functions
     
     private func initView() {
@@ -59,6 +70,7 @@ final class PDHomeViewController: UIViewController {
         configureEmpty()
         configureFloating()
         configureCollectionView()
+        configureRefreshControl()
     }
     
     private func configureEmpty() {
@@ -68,6 +80,8 @@ final class PDHomeViewController: UIViewController {
         emptyDescriptionLabel.textColor = PDColors.cl_Black
         emptyDescriptionLabel.numberOfLines = 0
         emptyDescriptionLabel.font = PDFonts.productSansBold.withSize(14.0)
+        emptyButton.setTitle("Try again", for: .normal)
+        emptyButton.setActiveStyle()
     }
     
     private func configureFloating() {
@@ -81,7 +95,6 @@ final class PDHomeViewController: UIViewController {
     }
     
     private func configureCollectionView() {
-        collectionView.isHidden = true
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.backgroundColor = .clear
@@ -93,8 +106,17 @@ final class PDHomeViewController: UIViewController {
         collectionView.register(PDPokemonCollectionViewCell.getNib(), forCellWithReuseIdentifier: PDPokemonCollectionViewCell.identifier)
     }
     
+    private func configureRefreshControl() {
+        refreshControl.addTarget(self, action: #selector(reloadPokemons), for: .valueChanged)
+        collectionView.refreshControl = refreshControl
+    }
+    
     @objc func didTapFloatingButton() {
         presenter.goToSearchPokemon()
+    }
+    
+    @objc func reloadPokemons() {
+        presenter.retrievePokemonList()
     }
     
 }
@@ -118,10 +140,6 @@ extension PDHomeViewController: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegate
 
 extension PDHomeViewController: UICollectionViewDelegate {
-    
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        cell.backgroundColor = .clear
-    }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         presenter.didTapPokemon(with: indexPath.row)
@@ -151,16 +169,16 @@ extension PDHomeViewController: UICollectionViewDelegate {
 extension PDHomeViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+        return 8
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+        return 8
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (collectionView.frame.size.width/2)-8,
-                      height: (collectionView.frame.size.width/2)-8)
+        return CGSize(width: (collectionView.frame.size.width/2)-12,
+                      height: (collectionView.frame.size.width/2)-12)
     }
     
 }
@@ -170,15 +188,16 @@ extension PDHomeViewController: UICollectionViewDelegateFlowLayout {
 extension PDHomeViewController: PDHomeViewProtocol {
     
     func showLoading() {
+        collectionView.isHidden = false
+        emptyContainerView.isHidden = true
         floatingButtonContainer.isHidden = true
-        loadingIndicatorView.startAnimating()
-        loadingIndicatorView.isHidden = false
+        self.view.showAnimatedGradientSkeleton()
     }
     
     func hideLoading() {
+        collectionView.refreshControl?.endRefreshing()
         floatingButtonContainer.isHidden = false
-        loadingIndicatorView.stopAnimating()
-        loadingIndicatorView.isHidden = true
+        view.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.3))
     }
     
     func showProgressIndicator() {
@@ -230,6 +249,25 @@ extension PDHomeViewController: PDHomeViewProtocol {
     }
     
 }
+
+extension PDHomeViewController: SkeletonCollectionViewDataSource {
+    
+    func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> SkeletonView.ReusableCellIdentifier {
+        return PDPokemonCollectionViewCell.identifier
+    }
+    
+    func collectionSkeletonView(_ skeletonView: UICollectionView, skeletonCellForItemAt indexPath: IndexPath) -> UICollectionViewCell? {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PDPokemonCollectionViewCell.identifier, for: indexPath) as? PDPokemonCollectionViewCell else { return UICollectionViewCell(frame: .zero) }
+        cell.haveShowViews(show: false)
+        return cell
+    }
+    
+}
+
 
 // MARK: - StoryboardInstantiable
 

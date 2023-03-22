@@ -34,12 +34,12 @@ class PDPokemonCollectionViewCell: UICollectionViewCell {
     // MARK: - Functions
     
     private func initView() {
+        haveShowViews(show: false)
         // Shadow container
         itemShadowContainerView.backgroundColor = .clear
         itemShadowContainerView.addRadius(cornerRadius: 12.0)
         itemShadowContainerView.addShadow(radius: 4.0)
         // Container
-        itemContainerView.backgroundColor = PDColors.cl_CadetGray
         itemContainerView.addRadius(cornerRadius: 12.0)
         itemContainerView.clipsToBounds = true
         // Labels
@@ -51,15 +51,15 @@ class PDPokemonCollectionViewCell: UICollectionViewCell {
         pokemonNameLabel.textColor = PDColors.cl_White
         pokemonNameLabel.numberOfLines = 0
         pokemonNameLabel.font = PDFonts.productSansBold.withSize(18.0)
-        //Images
-        pokeballTransparentImageView.image = PDImage.imgPokeballClear.withTintColor(PDColors.cl_White_SemiTransparent)
     }
 
     func setupCell(with pokemon: Pokemon) {
+        haveShowViews()
         loadImage(using: pokemon.imageUrl)
         numberLabel.text = "#\(String(format: "%03d", pokemon.id ?? 0))"
         pokemonNameLabel.text = pokemon.name.capitalized
-        itemContainerView.backgroundColor = pokemon.detail?.types?.first?.typeBackgroundColor
+        itemContainerView.backgroundColor = pokemon.detail?.types?.first?.typeBackgroundColor ?? PDColors.cl_CadetGray
+        pokeballTransparentImageView.image = PDImage.imgPokeballClear.withTintColor(PDColors.cl_White_SemiTransparent)
     }
     
     private func loadImage(using pokemonImageUrl: String?) {
@@ -77,6 +77,13 @@ class PDPokemonCollectionViewCell: UICollectionViewCell {
                 self.pokemonImageView.image = PDImage.imgPokeball
             }
         }
+    }
+    
+    func haveShowViews(show: Bool = true) {
+        numberLabel.isHidden = !show
+        pokemonNameLabel.isHidden = !show
+        pokemonImageView.isHidden = !show
+        pokeballTransparentImageView.isHidden = !show
     }
     
     static func getNib() -> UINib {

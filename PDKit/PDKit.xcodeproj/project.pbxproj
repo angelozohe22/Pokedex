@@ -31,6 +31,7 @@
 		4C2C1C5B29BF10DC009F1F54 /* StoryboardInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2C1C5A29BF10DC009F1F54 /* StoryboardInstantiable.swift */; };
 		4CC9463E29C13C30002F38A7 /* PDProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC9463D29C13C30002F38A7 /* PDProgressView.swift */; };
 		4CE7CF8129C18B7300776A14 /* String+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE7CF8029C18B7300776A14 /* String+extension.swift */; };
+		4CF8933129CAC4E700F51035 /* UIButton+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF8933029CAC4E700F51035 /* UIButton+extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		4C2C1C5A29BF10DC009F1F54 /* StoryboardInstantiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardInstantiable.swift; sourceTree = "<group>"; };
 		4CC9463D29C13C30002F38A7 /* PDProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDProgressView.swift; sourceTree = "<group>"; };
 		4CE7CF8029C18B7300776A14 /* String+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+extension.swift"; sourceTree = "<group>"; };
+		4CF8933029CAC4E700F51035 /* UIButton+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 				4C2C1C5529BF0ED3009F1F54 /* UIView+extension.swift */,
 				4C2C1C5729BF0FA4009F1F54 /* UIView+constraints.swift */,
 				4CE7CF8029C18B7300776A14 /* String+extension.swift */,
+				4CF8933029CAC4E700F51035 /* UIButton+extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 				4C2C1C5B29BF10DC009F1F54 /* StoryboardInstantiable.swift in Sources */,
 				4CE7CF8129C18B7300776A14 /* String+extension.swift in Sources */,
 				4C2C1C5229BF031E009F1F54 /* PDColors.swift in Sources */,
+				4CF8933129CAC4E700F51035 /* UIButton+extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
