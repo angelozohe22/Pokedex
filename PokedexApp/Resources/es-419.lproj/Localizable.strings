@@ -1,0 +1,24 @@
+/* 
+  Localizable.strings
+  PokedexApp
+
+  Created by Luis Angel Inga Mendoza on 14/03/23.
+  
+*/
+
+// MARK: - Empty
+
+"EMPTY_NO_POKEMONS_DESCRIPTION" = "No hemos encontrado ningún pokémon disponible.\nPor favor, inténtelo de nuevo más tarde.";
+
+// MARK: - Error
+
+"ERROR_NO_CONNECTION_DESCRIPTION" = "Para poder encontrar pokémons es necesario tener una conexión a internet estable.\nPor favor inténtalo de nuevo más tarde.";
+"ERROR_NO_DATA_DESCRIPTION" = "En este momento no hemos encontrado ninguna información.\nPor favor inténtalo de nuevo.";
+"ERROR_UNEXPECTED_DESCRIPTION" = "Hemos tenido un error inesperado, lamentamos lo ocurrido.\nPor favor, inténtalo de nuevo.";
+"ERROR_UNAUTHORIZED_DESCRIPTION" = "En este momento no tiene los permisos necesarios para realizar una búsqueda.\nInténtelo de nuevo cuando esté autorizado.";
+
+// MARK: - Search Pokémon
+
+"SEARCH_POKEMON_SEARCH_PLACEHOLDER" = "Escribe un pokémon";
+"SEARCH_POKEMON_EMPTY_DATA_TITLE" = "?";
+"SEARCH_POKEMON_EMPTY_DATA_DESCRIPTION" = "Quién es ese pokémon";

@@ -73,6 +73,7 @@ final class PDPokemonDetailViewController: UIViewController {
         [contentContainerView, containerPokemonDetails, contentView].forEach { view in
             view?.backgroundColor = PDColors.cl_LightGray
         }
+        containerPokemonImageView.addBottomCorner(cornerRadius: 24.0)
         // Labels
         pokemonNameLabel.textAlignment = .left
         pokemonNameLabel.textColor = PDColors.cl_Black
@@ -156,50 +157,68 @@ extension PDPokemonDetailViewController: PDPokemonDetailView {
          containerPokemonImageView].forEach { view in
             view?.backgroundColor = pokemon.detail?.types?.first?.typeBackgroundColor
         }
-        containerPokemonImageView.addBottomCorner(cornerRadius: 24.0)
-        // Pokemon image
-        if let imageURL = pokemon.imageUrl,
-           let url = URL(string: imageURL) {
-            pokemonImageView.sd_setImage(with: url) { [weak self] (image, error, cacheType, url) in
-                guard let self = self else { return }
-                self.pokemonImageView.backgroundColor = .clear
-                if let image = image {
-                    self.pokemonImageView.image = image
-                } else {
-                    self.pokemonImageView.image = PDImage.imgPokeball
-                }
-            }
-        } else {
-            self.pokemonImageView.backgroundColor = .clear
-            self.pokemonImageView.image = PDImage.imgPokeball
+        setImage(imageUrl: pokemon.imageUrl)
+        setDescription(name: pokemon.name, description: pokemon.description)
+        setTypes(types: pokemon.detail?.types)
+        setAbilities(abilities: pokemon.detail?.abilities)
+        setStats(stats: pokemon.detail?.stats)
+        setHabitat(habitat: pokemon.habitatName)
+        setEvolution(evolvesFrom: pokemon.evolvesFrom)
+    }
+    
+    private func setImage(imageUrl: String?) {
+        pokemonImageView.loadImage(withURL: imageUrl,
+                                   defaultImage: PDImage.imgPokeball)
+    }
+    
+    private func setDescription(name: String, description: String?) {
+        pokemonNameLabel.text = name.capitalized
+        guard let description = description else {
+            pokemonDescriptionLabel.text = ""
+            return
         }
-        // Pokemon description
-        pokemonNameLabel.text = pokemon.name.capitalized
-        pokemonDescriptionLabel.text = pokemon.description ?? ""
-        // Types
-        containerPrimaryTypeView.backgroundColor = pokemon.detail?.types?.first?.typeColor
-        primaryTypeImageView.image = pokemon.detail?.types?.first?.typeIcon
-        primaryTypeLabel.text = pokemon.detail?.types?.first?.name.capitalized
-        if let types = pokemon.detail?.types, types.count > 1 {
+        let deecriptionFormatted = description.removeAllNewLines().capitalizeAfterDot()
+        pokemonDescriptionLabel.text = deecriptionFormatted
+    }
+    
+    private func setTypes(types: [PokemonDetailType]?) {
+        guard let types = types else {
+            containerPrimaryTypeView.isHidden = true
+            containerSecondaryTypeView.isHidden = true
+            return
+        }
+        containerPrimaryTypeView.backgroundColor = types.first?.typeColor
+        primaryTypeImageView.image = types.first?.typeIcon
+        primaryTypeLabel.text = types.first?.name.capitalized
+        if types.count > 1 {
             containerSecondaryTypeView.isHidden = false
             containerSecondaryTypeView.backgroundColor = types.last?.typeColor
             secondaryTypeImageView.image = types.last?.typeIcon
             secondaryTypeLabel.text = types.last?.name.capitalized
         }
-        // Abilities
-        var abilities: String = ""
-        pokemon.detail?.abilities?.enumerated().forEach({ (index, ability) in
-            abilities += ability.name.replacingOccurrences(of: "-", with: " ").firstCapitalize()
-            if (index+1) < pokemon.detail?.abilities?.count ?? 0 {
-                abilities += ", "
-            }
-        })
-        pokemonAbilitiesLabel.text = abilities
-        // Stats
+    }
+    
+    private func setAbilities(abilities: [PokemonDetailAbility]?) {
+        guard let abilities = abilities else {
+            pokemonAbilitiesLabel.text = ""
+            return
+        }
+        let pokemonAbilities = abilities.enumerated().map { (index, ability) -> String in
+            let name = ability.name.replacingOccurrences(of: "-", with: " ").firstCapitalize()
+            return "\(name)\(index < abilities.count - 1 ? ", " : "")"
+        }.joined()
+        pokemonAbilitiesLabel.text = pokemonAbilities
+    }
+    
+    private func setStats(stats: [PokemonDetailStat]?) {
+        guard let stats = stats else {
+            pokemonStatsLabel.text = ""
+            return
+        }
         let statDescription: NSMutableAttributedString = NSMutableAttributedString()
         let statDescriptionParagraphStyle = NSMutableParagraphStyle()
         statDescriptionParagraphStyle.alignment = .left
-        pokemon.detail?.stats?.enumerated().forEach { (index, stat) in
+        stats.enumerated().forEach { (index, stat) in
             let nameStat = NSAttributedString(
                 string: "\(stat.statNameFormatted):  ", attributes: [
                     NSAttributedString.Key.font: PDFonts.productSansBold.withSize(12),
@@ -214,11 +233,11 @@ extension PDPokemonDetailViewController: PDPokemonDetailView {
             statDescription.append(statValue)
             let statEffort = NSAttributedString(
                 string: " \(stat.effort)", attributes: [
-                    NSAttributedString.Key.font: PDFonts.productSansRegular.withSize(14),
+                    NSAttributedString.Key.font: PDFonts.productSansRegular.withSize(12),
                     NSAttributedString.Key.foregroundColor: PDColors.cl_Black
                 ])
             statDescription.append(statEffort)
-            if (index+1) < pokemon.detail?.stats?.count ?? 0 {
+            if index < stats.count - 1 {
                 let statSpace = NSAttributedString(
                     string: "    ", attributes: [:])
                 statDescription.append(statSpace)
@@ -230,25 +249,17 @@ extension PDPokemonDetailViewController: PDPokemonDetailView {
             }
         }
         pokemonStatsLabel.attributedText = statDescription
-        // Habitat
-        pokemonHabitatLabel.text = pokemon.habitatName?.firstCapitalize()
-        // Evolutions
-        if let pokemonEvolves = pokemon.evolvesFrom {
+    }
+    
+    private func setHabitat(habitat: String?) {
+        pokemonHabitatLabel.text = (habitat ?? "").firstCapitalize()
+    }
+    
+    private func setEvolution(evolvesFrom: PokemonEvolvesFrom?) {
+        if let pokemonEvolves = evolvesFrom {
             pokemonEvolutionImageView.isHidden = false
-            if let url = URL(string: pokemonEvolves.imageUrl) {
-                pokemonEvolutionImageView.sd_setImage(with: url) { [weak self] (image, error, cacheType, url) in
-                    guard let self = self else { return }
-                    self.pokemonEvolutionImageView.backgroundColor = .clear
-                    if let image = image {
-                        self.pokemonEvolutionImageView.image = image
-                    } else {
-                        self.pokemonEvolutionImageView.image = PDImage.imgPokeball
-                    }
-                }
-            } else {
-                self.pokemonEvolutionImageView.backgroundColor = .clear
-                self.pokemonEvolutionImageView.image = PDImage.imgPokeball
-            }
+            pokemonEvolutionImageView.loadImage(withURL: pokemonEvolves.imageUrl,
+                                                defaultImage: PDImage.imgPokeball)
             pokemonEvolutionLabel.text = pokemonEvolves.name.firstCapitalize()
         } else {
             pokemonEvolutionImageView.isHidden = true

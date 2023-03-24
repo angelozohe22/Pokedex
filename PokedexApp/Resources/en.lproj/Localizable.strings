@@ -16,3 +16,9 @@
 "ERROR_NO_DATA_DESCRIPTION" = "At this time we have not found any information.\nPlease try again.";
 "ERROR_UNEXPECTED_DESCRIPTION" = "We have had an unexpected error, we are sorry for what happened.\nPlease try again.";
 "ERROR_UNAUTHORIZED_DESCRIPTION" = "At this time you do not have the necessary permissions to perform a search.\nPlease try again when you are authorized.";
+
+// MARK: - Search Pokémon
+
+"SEARCH_POKEMON_SEARCH_PLACEHOLDER" = "Write a pokemon";
+"SEARCH_POKEMON_EMPTY_DATA_TITLE" = "?";
+"SEARCH_POKEMON_EMPTY_DATA_DESCRIPTION" = "Who is that Pokemon?";

@@ -63,20 +63,8 @@ class PDPokemonCollectionViewCell: UICollectionViewCell {
     }
     
     private func loadImage(using pokemonImageUrl: String?) {
-        guard let imageURL = pokemonImageUrl,
-              let url = URL(string: imageURL) else {
-            pokemonImageView.backgroundColor = .clear
-            pokemonImageView.image = PDImage.imgPokeball
-            return
-        }
-        pokemonImageView.sd_setImage(with: url) { [weak self] (image, error, cacheType, url) in
-            guard let self = self else { return }
-            if let image = image {
-                self.pokemonImageView.image = image
-            } else {
-                self.pokemonImageView.image = PDImage.imgPokeball
-            }
-        }
+        pokemonImageView.loadImage(withURL: pokemonImageUrl,
+                                   defaultImage: PDImage.imgPokeball)
     }
     
     func haveShowViews(show: Bool = true) {

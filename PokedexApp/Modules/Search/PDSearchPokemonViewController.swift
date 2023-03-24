@@ -54,6 +54,10 @@ final class PDSearchPokemonViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     // MARK: - Functions
     
     private func initView() {
@@ -75,7 +79,7 @@ final class PDSearchPokemonViewController: UIViewController {
     }
     
     private func configureSearchBar() {
-        searchBar.placeholder = "Search pokémon"
+        searchBar.placeholder = NSLocalizedString("SEARCH_POKEMON_SEARCH_PLACEHOLDER", comment: "")
         searchBar.searchBarStyle = .minimal
         searchBar.delegate = self
         searchBar.backgroundColor = PDColors.cl_LightGray
@@ -116,8 +120,8 @@ final class PDSearchPokemonViewController: UIViewController {
         containerEmptyStackView.isHidden = true
         containerPokemonView.backgroundColor = PDColors.cl_Red
         pokemonInfoImageView.image = PDImage.imgPokemonNoVisible
-        pokemonNumberLabel.text = "?"
-        pokemonNameLabel.text = "Who is that Pokemon?"
+        pokemonNumberLabel.text = NSLocalizedString("SEARCH_POKEMON_EMPTY_DATA_TITLE", comment: "")
+        pokemonNameLabel.text = NSLocalizedString("SEARCH_POKEMON_EMPTY_DATA_DESCRIPTION", comment: "")
     }
     
     @objc func didTapBackButton() {
@@ -152,6 +156,9 @@ extension PDSearchPokemonViewController: UISearchBarDelegate {
 extension PDSearchPokemonViewController: PDSearchPokemonView {
     
     func showLoading() {
+        containerInformationView.isHidden = true
+        containerPokemonView.isHidden = true
+        containerEmptyStackView.isHidden = true
         loadingIndicatorView.startAnimating()
         loadingIndicatorView.isHidden = false
     }
@@ -178,21 +185,8 @@ extension PDSearchPokemonViewController: PDSearchPokemonView {
         containerPokemonView.isHidden = false
         containerEmptyStackView.isHidden = true
         containerPokemonView.backgroundColor = pokemon.detail?.types?.first?.typeBackgroundColor ?? PDColors.cl_CadetGray
-        if let imageURL = pokemon.imageUrl,
-           let url = URL(string: imageURL) {
-            pokemonInfoImageView.sd_setImage(with: url) { [weak self] (image, error, cacheType, url) in
-                guard let self = self else { return }
-                self.pokemonInfoImageView.backgroundColor = .clear
-                if let image = image {
-                    self.pokemonInfoImageView.image = image
-                } else {
-                    self.pokemonInfoImageView.image = PDImage.imgPokeball
-                }
-            }
-        } else {
-            self.pokemonInfoImageView.backgroundColor = .clear
-            self.pokemonInfoImageView.image = PDImage.imgPokeball
-        }
+        pokemonInfoImageView.loadImage(withURL: pokemon.imageUrl,
+                                       defaultImage: PDImage.imgPokeball)
         pokemonNumberLabel.text = "#\(String(format: "%03d", pokemon.id ?? 0))"
         pokemonNameLabel.text = pokemon.name.firstCapitalize()
     }
